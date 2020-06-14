@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="TextView">
+        <item name="android:letterSpacing">0</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/icomoon</item>
+        <item name="android:fontFeatureSettings">lnum</item>
+    </style>
+    
+    <style name="Body" parent="TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:minHeight">24sp</item>
+    </style>
+
+    <style name="Subhead" parent="TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:minHeight">20sp</item>
+    </style>
+
+    <style name="Headline" parent="TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:minHeight">24sp</item>
+    </style>
+
+    <style name="Caption" parent="TextView">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:minHeight">16sp</item>
+
+    </style>
+
+</resources>

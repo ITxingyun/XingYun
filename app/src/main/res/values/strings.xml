@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">学Android</string>
+
+    <!--Title-->
+    <string name="title_home">首页</string>
+    <string name="title_community">社区</string>
+    <string name="title_user">我的</string>
+
+    <!--我的-->
+    <string name="user_profile_login">登录</string>
+
+    <!--问答-->
+    <string name="community_tab_question_and_square">广场</string>
+    <string name="community_tab_question_and_answer">问答</string>
+
+</resources>
