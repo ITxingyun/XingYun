@@ -4,4 +4,8 @@ import androidx.lifecycle.ViewModel
 
 class WebViewViewModel: ViewModel() {
 
+    fun backToPreviousPage() {
+
+    }
+
 }

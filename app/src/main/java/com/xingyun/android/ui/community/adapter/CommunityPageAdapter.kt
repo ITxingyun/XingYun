@@ -26,7 +26,7 @@ class CommunityPageAdapter(
     companion object {
         private val communityTabSpec = listOf(
                 CommunityTabSpec(::SquareFragment, R.string.community_tab_question_and_square),
-                CommunityTabSpec(::QuestionFragment, R.string.community_tab_question_and_square)
+                CommunityTabSpec(::QuestionFragment, R.string.community_tab_question_and_answer)
         )
 
         private class CommunityTabSpec(

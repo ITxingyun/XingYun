@@ -6,6 +6,7 @@ import com.xingyun.android.ui.community.QuestionFragment
 import com.xingyun.android.ui.community.SquareFragment
 import com.xingyun.android.ui.home.HomeFragment
 import com.xingyun.android.ui.user.UserProfileFragment
+import com.xingyun.android.ui.webview.WebViewFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -26,4 +27,7 @@ abstract class AbstractAllFragmentModule {
 
     @ContributesAndroidInjector(modules = [CommunityFragmentModule::class])
     abstract fun communityFragmentInjector(): CommunityFragment
+
+    @ContributesAndroidInjector(modules = [WebViewFragmentModule::class])
+    abstract fun webViewFragmentInjector(): WebViewFragment
 }

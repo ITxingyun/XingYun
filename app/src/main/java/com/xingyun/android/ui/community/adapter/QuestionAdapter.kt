@@ -23,8 +23,9 @@ class QuestionAdapter(private val viewModel: QuestionViewModel): ListAdapter<Art
     class ViewHolder private constructor(private val binding: ItemQuestionBinding) :
             RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(viewModel: QuestionViewModel, question: Article) {
-            binding.question = question
+        fun bind(viewModel: QuestionViewModel, article: Article) {
+            binding.article = article
+            binding.viewmodel = viewModel
         }
 
         companion object {
