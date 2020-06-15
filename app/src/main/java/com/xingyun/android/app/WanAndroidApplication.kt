@@ -28,6 +28,8 @@ class WanAndroidApplication : Application(), HasAndroidInjector {
         super.onCreate()
         appComponent.inject(this)
 
+        instance = this
+
 //        initMatrix()
 
 //        initCrashReport()
@@ -81,5 +83,11 @@ class WanAndroidApplication : Application(), HasAndroidInjector {
         const val PACK_NAME = "com.xingyun.android"
         const val BUGLY_APP_ID = "b2927a9f71"
         const val APP_CHANNEL = "xiaomi"
+
+        private lateinit var instance: WanAndroidApplication
+
+        @Synchronized
+        fun getInstance(): WanAndroidApplication = instance
+
     }
 }

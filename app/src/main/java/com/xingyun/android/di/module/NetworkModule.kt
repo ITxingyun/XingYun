@@ -1,6 +1,7 @@
 package com.xingyun.android.di.module
 
 import com.xingyun.android.core.http.XYRetrofitService
+import com.xingyun.android.core.http.cookies.CookiesManager
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -19,6 +20,7 @@ class NetworkModule {
                 .readTimeout(READ_TIME_OUT, TimeUnit.MILLISECONDS)
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.MILLISECONDS)
                 .writeTimeout(WRITE_TIME_OUT, TimeUnit.MILLISECONDS)
+                .cookieJar(CookiesManager())
                 .build()
     }
 
