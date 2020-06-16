@@ -33,8 +33,8 @@ class CookiesManager : CookieJar {
      * @param cookie Cookie
      * @return if clear cookies
      */
-    fun clearCookies(url: HttpUrl?, cookie: Cookie?): Boolean {
-        return COOKIE_STORE.remove(url!!, cookie!!)
+    fun clearCookies(url: HttpUrl, cookie: Cookie): Boolean {
+        return COOKIE_STORE.remove(url, cookie)
     }
 
     /**
@@ -42,7 +42,7 @@ class CookiesManager : CookieJar {
      *
      * @return List<Cookie>
     </Cookie> */
-    fun getCookies(): List<Cookie?>? {
+    fun getCookies(): List<Cookie> {
         return COOKIE_STORE.getCookies()
     }
 

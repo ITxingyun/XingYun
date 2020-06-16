@@ -7,6 +7,8 @@ import com.xingyun.android.viewmodel.community.QuestionViewModel
 import com.xingyun.android.core.source.DataRepository
 import com.xingyun.android.viewmodel.community.SquareViewModel
 import com.xingyun.android.viewmodel.home.HomeViewModel
+import com.xingyun.android.viewmodel.splash.LoginViewModel
+import com.xingyun.android.viewmodel.splash.RegistryViewModel
 import com.xingyun.android.viewmodel.user.UserProfileViewModel
 import com.xingyun.android.viewmodel.webview.WebViewViewModel
 import javax.inject.Inject
@@ -18,7 +20,11 @@ class XYViewModelFactory @Inject constructor(
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when {
-
+            //splash
+            modelClass.isAssignableFrom(LoginViewModel::class.java) ->
+                LoginViewModel(dataRepository)
+            modelClass.isAssignableFrom(RegistryViewModel::class.java) ->
+                RegistryViewModel(dataRepository)
 
             //home
             modelClass.isAssignableFrom(HomeViewModel::class.java) ->

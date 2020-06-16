@@ -2,42 +2,80 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <import type="kotlin.jvm.functions.Function1" />
+
+        <import type="kotlin.Unit" />
+
+        <import type="com.google.android.material.textfield.TextInputLayout" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="onTouchListener"
+            type="Function1&lt;TextInputLayout, Boolean&gt;" />
+
+        <variable
+            name="viewModel"
+            type="com.xingyun.android.viewmodel.splash.LoginViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_user_name"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="100dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/login_user_name_hint"
+            app:errorEnabled="@{viewModel.userNameErrorMsg != null}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:textInputError="@{viewModel.userNameErrorMsg}">
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/TextInputEditStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onTouch="@{(view, event) -> onTouchListener.invoke(tilUserName)}"
+                android:text="@={viewModel.userName}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_password"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/login_password_hint"
+            app:errorEnabled="@{viewModel.passwordErrorMsg != null}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til_user_name">
+            app:layout_constraintTop_toBottomOf="@+id/til_user_name"
+            app:textInputError="@{viewModel.passwordErrorMsg}">
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/TextInputEditStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onTouch="@{(view, event) -> onTouchListener.invoke(tilPassword)}"
+                android:text="@={viewModel.password}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:onClick="@{() -> viewModel.login()}"
             android:text="@string/user_profile_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

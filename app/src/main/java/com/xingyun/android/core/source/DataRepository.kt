@@ -11,4 +11,7 @@ class DataRepository @Inject constructor(
     suspend fun loadQuestionsAndAnswers() = remoteDataSource.loadQuestionsAndAnswers()
 
 
+    suspend fun login(userName: String, password: String) {
+        remoteDataSource.login(userName, password)
+    }
 }

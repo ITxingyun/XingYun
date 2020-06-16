@@ -9,7 +9,7 @@ class OkHttpCookies(@Transient private val cookies: Cookie) {
     @Transient
     private lateinit var clientCookies: Cookie
 
-    fun getCookies(): Cookie? {
+    fun getCookies(): Cookie {
         var bestCookies = cookies
         if (::clientCookies.isInitialized) {
             bestCookies = clientCookies

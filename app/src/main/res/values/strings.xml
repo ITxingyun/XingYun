@@ -5,6 +5,12 @@
     <string name="title_home">首页</string>
     <string name="title_community">社区</string>
     <string name="title_user">我的</string>
+    
+    <!--Splash-->
+    <string name="login_user_name_error_msg">账户不能为空！</string>
+    <string name="login_password_error_msg">密码不能为空！</string>
+    <string name="login_user_name_hint">账号</string>
+    <string name="login_password_hint">密码</string>
 
     <!--我的-->
     <string name="user_profile_login">登录</string>

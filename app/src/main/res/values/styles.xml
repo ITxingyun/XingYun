@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -38,7 +38,49 @@
         <item name="android:textSize">12sp</item>
         <item name="android:lineSpacingExtra">4sp</item>
         <item name="android:minHeight">16sp</item>
+    </style>
 
+    <style name="ErrorMsg" parent="Caption">
+        <item name="android:textColor">@color/red_500</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/text_field_stroke_color_selector</item>
+        <item name="hintTextColor">@color/coolgray_500</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColorHint">@color/coolgray_500</item>
+        <item name="android:fontFamily">@font/icomoon</item>
+        <item name="helperTextTextColor">@color/coolgray_500</item>
+        <item name="errorIconDrawable">@drawable/ic_warning</item>
+        <item name="errorTextAppearance">@style/ErrorMsg</item>
+        <item name="counterOverflowTextAppearance">@style/ErrorMsg</item>
+        <item name="counterTextAppearance">@style/Caption</item>
+        <item name="errorTextColor">@color/red_500</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="counterOverflowTextColor">@color/red_500</item>
+        <item name="errorIconTint">@color/red_500</item>
+        <item name="errorEnabled">true</item>
+        <item name="boxCornerRadiusTopStart">2dp</item>
+        <item name="boxCornerRadiusTopEnd">2dp</item>
+        <item name="boxCornerRadiusBottomStart">2dp</item>
+        <item name="boxCornerRadiusBottomEnd">2dp</item>
+    </style>
+
+    <style name="TextInputEditStyle" parent="Body">
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:theme">@style/CursorStyle</item>
+        <item name="android:textColor">@color/edit_text_color_selector</item>
+        <item name="android:textCursorDrawable">@drawable/edit_text_cursor</item>
+    </style>
+
+    <style name="CursorStyle">
+        <item name="android:colorPrimary">@color/indigo_800</item>
+        <item name="android:colorControlActivated">@color/indigo_800</item>
     </style>
 
 </resources>
