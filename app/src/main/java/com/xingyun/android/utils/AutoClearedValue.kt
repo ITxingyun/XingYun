@@ -10,18 +10,23 @@ import kotlin.reflect.KProperty
 /**
  * 要来处理replaceFragment导致的内存泄漏
  */
-class AutoClearedValue<T> : ReadWriteProperty<Fragment, T>, LifecycleObserver {
+class AutoClearedValue<T>(val fragment: Fragment) : ReadWriteProperty<Fragment, T>, LifecycleObserver {
 
     private var _value: T? = null
 
-    override fun getValue(thisRef: Fragment, property: KProperty<*>): T =
-            _value
-                    ?: throw IllegalStateException("Trying to call an auto-cleared value outside of the view lifecycle.")
+    init {
+        fragment.lifecycle.addObserver(this)
+    }
+
+    override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
+        return _value ?: throw IllegalStateException(
+            "Trying to call an auto-cleared value outside of the view lifecycle."
+        )
+    }
+
 
     override fun setValue(thisRef: Fragment, property: KProperty<*>, value: T) {
-        thisRef.viewLifecycleOwner.lifecycle.removeObserver(this)
         _value = value
-        thisRef.viewLifecycleOwner.lifecycle.addObserver(this)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -30,3 +35,5 @@ class AutoClearedValue<T> : ReadWriteProperty<Fragment, T>, LifecycleObserver {
     }
 
 }
+
+fun <T : Any> Fragment.autoCleared() = AutoClearedValue<T>(this)

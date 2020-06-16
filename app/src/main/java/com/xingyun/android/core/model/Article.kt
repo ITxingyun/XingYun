@@ -1,12 +1,10 @@
 package com.xingyun.android.core.model
 
 import androidx.room.*
-import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 
 @Entity
-@JsonClass(generateAdapter = true)
 data class Article(
         @PrimaryKey val id: Int,
         val apkLink: String,
@@ -41,7 +39,6 @@ data class Article(
         val zan: Int
 )
 
-@JsonClass(generateAdapter = true)
 data class Tag(val name: String, val url: String)
 
 class TagsConverters {

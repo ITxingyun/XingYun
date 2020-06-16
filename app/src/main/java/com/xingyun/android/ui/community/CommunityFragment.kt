@@ -7,7 +7,7 @@ import com.xingyun.android.base.AbstractMVVMFragment
 import com.xingyun.android.viewmodel.community.CommunityViewModel
 import com.xingyun.android.ui.community.adapter.CommunityPageAdapter
 import com.xingyun.android.databinding.FragmentCommunityBinding
-import com.xingyun.android.utils.AutoClearedValue
+import com.xingyun.android.utils.autoCleared
 
 class CommunityFragment : AbstractMVVMFragment<FragmentCommunityBinding, CommunityViewModel>() {
 
@@ -15,7 +15,7 @@ class CommunityFragment : AbstractMVVMFragment<FragmentCommunityBinding, Communi
 
     override val layoutResourceId: Int = R.layout.fragment_community
 
-    private var adapter: CommunityPageAdapter by AutoClearedValue()
+    private var adapter by autoCleared<CommunityPageAdapter>()
 
     override fun initView() {
         binding.vpCommunity.adapter = CommunityPageAdapter(this@CommunityFragment).also { adapter = it }

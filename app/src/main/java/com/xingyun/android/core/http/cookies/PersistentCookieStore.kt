@@ -22,7 +22,7 @@ class PersistentCookieStore {
         val prefsMap = cookiePrefs.all
 
         for ((key, value) in prefsMap) {
-            val cookieNames = (value as String?)?.split(",", limit = -1) ?: emptyList()
+            val cookieNames = (value as String?)?.split(",") ?: emptyList()
             for (name in cookieNames) {
                 val encodedCookie = cookiePrefs.getString(name, null)
                 encodedCookie?.let {

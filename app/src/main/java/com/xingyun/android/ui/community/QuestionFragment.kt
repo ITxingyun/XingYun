@@ -11,8 +11,8 @@ import com.xingyun.android.R
 import com.xingyun.android.ui.webview.WebViewActivity
 import com.xingyun.android.ui.webview.WebViewActivity.Companion.KEY_BUNDLE_WEB_VIEW_TITLE
 import com.xingyun.android.ui.webview.WebViewActivity.Companion.KEY_BUNDLE_WEB_VIEW_URL
-import com.xingyun.android.utils.AutoClearedValue
 import com.xingyun.android.utils.EventObserver
+import com.xingyun.android.utils.autoCleared
 import com.xingyun.android.utils.start
 
 class QuestionFragment : AbstractMVVMFragment<FragmentQuestionBinding, QuestionViewModel>() {
@@ -21,7 +21,7 @@ class QuestionFragment : AbstractMVVMFragment<FragmentQuestionBinding, QuestionV
 
     override val layoutResourceId: Int = R.layout.fragment_question
 
-    private var listAdapter: QuestionAdapter by AutoClearedValue()
+    private var listAdapter by autoCleared<QuestionAdapter>()
 
     override fun initView() {
         binding.rvQuestion.apply {

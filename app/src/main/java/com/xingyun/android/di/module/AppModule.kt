@@ -2,7 +2,7 @@ package com.xingyun.android.di.module
 
 import android.content.Context
 import androidx.room.Room
-import com.xingyun.android.core.http.XYRetrofitService
+import com.xingyun.android.core.http.api.WebService
 import com.xingyun.android.core.source.local.LocalDataSource
 import com.xingyun.android.core.source.local.db.AppDatabase
 import com.xingyun.android.core.source.remote.RemoteDataSource
@@ -17,7 +17,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideRemoteDataSource(
-            retrofitService: XYRetrofitService
+            retrofitService: WebService
     ): RemoteDataSource {
         return RemoteDataSource(retrofitService)
     }

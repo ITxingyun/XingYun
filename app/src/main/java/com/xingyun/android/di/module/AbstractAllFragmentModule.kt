@@ -15,27 +15,27 @@ import dagger.android.ContributesAndroidInjector
 @Module(subcomponents = [BaseFragmentComponent::class])
 abstract class AbstractAllFragmentModule {
 
-    @ContributesAndroidInjector(modules = [LoginFragmentModule::class])
+    @ContributesAndroidInjector
     abstract fun loginFragmentInjector(): LoginFragment
 
-    @ContributesAndroidInjector(modules = [RegistryFragmentModule::class])
+    @ContributesAndroidInjector
     abstract fun registryFragmentInjector(): RegistryFragment
 
-    @ContributesAndroidInjector(modules = [HomeFragmentModule::class])
+    @ContributesAndroidInjector
     abstract fun homeFragmentInjector(): HomeFragment
 
-    @ContributesAndroidInjector(modules = [UserProfileFragmentModule::class])
+    @ContributesAndroidInjector
     abstract fun userProfileFragmentInjector(): UserProfileFragment
 
-    @ContributesAndroidInjector(modules = [SquareFragmentModule::class])
+    @ContributesAndroidInjector
     abstract fun squareFragmentInjector(): SquareFragment
 
-    @ContributesAndroidInjector(modules = [QuestionFragmentModule::class])
+    @ContributesAndroidInjector
     abstract fun questionFragmentInjector(): QuestionFragment
 
-    @ContributesAndroidInjector(modules = [CommunityFragmentModule::class])
+    @ContributesAndroidInjector
     abstract fun communityFragmentInjector(): CommunityFragment
 
-    @ContributesAndroidInjector(modules = [WebViewFragmentModule::class])
+    @ContributesAndroidInjector
     abstract fun webViewFragmentInjector(): WebViewFragment
 }

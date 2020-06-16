@@ -10,12 +10,12 @@ import dagger.android.ContributesAndroidInjector
 @Module(subcomponents = [BaseActivityComponent::class])
 abstract class AbstractAllActivityModule {
 
-    @ContributesAndroidInjector(modules = [SplashActivityModule::class])
+    @ContributesAndroidInjector
     abstract fun splashActivityInjector(): SplashActivity
 
-    @ContributesAndroidInjector(modules = [MainActivityModule::class])
+    @ContributesAndroidInjector
     abstract fun mainActivityInjector(): MainActivity
 
-    @ContributesAndroidInjector(modules = [WebViewActivityModule::class])
+    @ContributesAndroidInjector
     abstract fun webViewActivityInjector(): WebViewActivity
 }

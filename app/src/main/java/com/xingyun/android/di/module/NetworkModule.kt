@@ -1,7 +1,8 @@
 package com.xingyun.android.di.module
 
-import com.xingyun.android.core.http.XYRetrofitService
+import com.xingyun.android.core.http.api.WebService
 import com.xingyun.android.core.http.cookies.CookiesManager
+import com.xingyun.android.utils.LiveDataCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -31,13 +32,14 @@ class NetworkModule {
                 .baseUrl(BASE_URL)
                 .client(okHttpClient)
                 .addConverterFactory(MoshiConverterFactory.create())
+                .addCallAdapterFactory(LiveDataCallAdapterFactory())
                 .build()
     }
 
     @Singleton
     @Provides
-    fun provideQuestionsAndAnswersService(retrofit: Retrofit): XYRetrofitService {
-        return retrofit.create(XYRetrofitService::class.java)
+    fun provideQuestionsAndAnswersService(retrofit: Retrofit): WebService {
+        return retrofit.create(WebService::class.java)
     }
 
     private companion object {

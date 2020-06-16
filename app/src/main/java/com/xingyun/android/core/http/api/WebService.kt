@@ -1,19 +1,19 @@
-package com.xingyun.android.core.http
+package com.xingyun.android.core.http.api
 
+import androidx.lifecycle.LiveData
 import com.xingyun.android.core.model.Article
 import retrofit2.http.Field
 import retrofit2.http.GET
 import retrofit2.http.POST
 
-interface XYRetrofitService {
+interface WebService {
 
     //region article
     @GET("wenda/list/1/json")
-    suspend fun loadQuestionsAndAnswers(): ResponseBody<ListResponseBody<List<Article>>>
+    suspend fun loadQuestionsAndAnswers(): LiveData<Resource<ResponseBody<ListResponseBody<List<Article>>>>>
 
     @GET("user_article/list/0/json")
-    suspend fun loadSquareArticles(): ResponseBody<ListResponseBody<List<Article>>>
-
+    suspend fun loadSquareArticles(): LiveData<Resource<ResponseBody<ListResponseBody<List<Article>>>>>
     //end region
 
 

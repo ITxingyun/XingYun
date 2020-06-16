@@ -1,4 +1,4 @@
-package com.xingyun.android.core.http
+package com.xingyun.android.core.http.api
 
 import com.squareup.moshi.JsonClass
 
