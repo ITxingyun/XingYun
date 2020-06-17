@@ -1,6 +1,6 @@
 package com.xingyun.android.core.model
 
-data class HotSearch(
+data class Hot(
     val id: Int,
     val link: String,
     val name: String,

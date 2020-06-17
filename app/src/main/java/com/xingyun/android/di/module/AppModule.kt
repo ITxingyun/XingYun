@@ -3,9 +3,9 @@ package com.xingyun.android.di.module
 import android.content.Context
 import androidx.room.Room
 import com.xingyun.android.core.http.api.WebService
-import com.xingyun.android.core.source.local.LocalDataSource
+import com.xingyun.android.core.source.local.LocalArticleDataSource
 import com.xingyun.android.core.source.local.db.AppDatabase
-import com.xingyun.android.core.source.remote.RemoteDataSource
+import com.xingyun.android.core.source.remote.RemoteArticleDataSource
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -16,19 +16,19 @@ object AppModule {
     @JvmStatic
     @Singleton
     @Provides
-    fun provideRemoteDataSource(
+    fun provideRemoteArticleDataSource(
             retrofitService: WebService
-    ): RemoteDataSource {
-        return RemoteDataSource(retrofitService)
+    ): RemoteArticleDataSource {
+        return RemoteArticleDataSource(retrofitService)
     }
 
     @JvmStatic
     @Singleton
     @Provides
-    fun provideLocalDataSource(
+    fun provideLocalArticleDataSource(
             appDatabase: AppDatabase
-    ): LocalDataSource {
-        return LocalDataSource(appDatabase.userDao())
+    ): LocalArticleDataSource {
+        return LocalArticleDataSource(appDatabase.userDao())
     }
 
     @JvmStatic

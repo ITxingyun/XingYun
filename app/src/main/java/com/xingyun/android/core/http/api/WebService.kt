@@ -1,36 +1,80 @@
 package com.xingyun.android.core.http.api
 
-import com.xingyun.android.core.model.ArticleList
-import com.xingyun.android.core.model.User
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import com.xingyun.android.core.model.*
+import retrofit2.http.*
 
 interface WebService {
 
-    //region article
+    @GET("/article/list/{page}/json")
+    suspend fun getHomeArticles(@Path("page") page: Int): ApiResponse<ArticleList>
+
+    @GET("/banner/json")
+    suspend fun getBanner(): ApiResponse<List<Banner>>
+
+    @GET("/tree/json")
+    suspend fun getSystemType(): ApiResponse<List<Knowledge>>
+
+    @GET("/article/list/{page}/json")
+    suspend fun getSystemTypeDetail(@Path("page") page: Int, @Query("cid") cid: Int): ApiResponse<ArticleList>
+
+    @GET("/project/tree/json")
+    suspend fun getProjectType(): ApiResponse<List<Knowledge>>
+
+    @GET("/wxarticle/chapters/json")
+    suspend fun getBlogType(): ApiResponse<List<Knowledge>>
+
+    @GET("/wxarticle/list/{id}/{page}/json")
+    fun getBlogArticle(@Path("id") id: Int, @Path("page") page: Int): ApiResponse<ArticleList>
+
+    @GET("/project/list/{page}/json")
+    suspend fun getProjectTypeDetail(@Path("page") page: Int, @Query("cid") cid: Int): ApiResponse<ArticleList>
+
+    @GET("/article/listproject/{page}/json")
+    suspend fun getLastedProject(@Path("page") page: Int): ApiResponse<ArticleList>
+
+    @GET("/friend/json")
+    suspend fun getWebsites(): ApiResponse<List<Hot>>
+
+    @GET("/hotkey/json")
+    suspend fun getHot(): ApiResponse<List<Hot>>
+
+    @FormUrlEncoded
+    @POST("/article/query/{page}/json")
+    suspend fun searchHot(@Path("page") page: Int, @Field("k") key: String): ApiResponse<ArticleList>
+
+    @GET("/lg/collect/list/{page}/json")
+    suspend fun getCollectArticles(@Path("page") page: Int): ApiResponse<ArticleList>
+
+    @POST("/lg/collect/{id}/json")
+    suspend fun collectArticle(@Path("id") id: Int): ApiResponse<ArticleList>
+
+    @POST("/lg/uncollect_originId/{id}/json")
+    suspend fun cancelCollectArticle(@Path("id") id: Int): ApiResponse<ArticleList>
+
+    @GET("/user_article/list/{page}/json")
+    suspend fun getSquareArticleList(@Path("page") page: Int): ApiResponse<ArticleList>
+
+    @FormUrlEncoded
+    @POST("/lg/user_article/add/json")
+    suspend fun shareArticle(@Field("title") title: String, @Field("link") url: String): ApiResponse<String>
+
     @GET("wenda/list/1/json")
     suspend fun loadQuestionsAndAnswers(): ApiResponse<ArticleList>
 
     @GET("user_article/list/0/json")
     suspend fun loadSquareArticles(): ApiResponse<ArticleList>
-    //end region
 
-
-    //region login
     @FormUrlEncoded
     @POST("user/login")
     suspend fun login(@Field("username") userName: String, @Field("password") password: String): ApiResponse<User>
 
     @POST("user/register")
     suspend fun registry(
-        @Field("username") userName: String,
-        @Field("password") password: String,
-        @Field("repassword") rePassword: String
-    )
+            @Field("username") userName: String,
+            @Field("password") password: String,
+            @Field("repassword") rePassword: String
+    ): ApiResponse<User>
 
-    @GET("user/logout/json")
-    suspend fun logout()
-    //end region
+    suspend fun logout(): ApiResponse<String>
+
 }

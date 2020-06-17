@@ -3,9 +3,9 @@ package com.xingyun.android.viewmodel.user
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.xingyun.android.core.source.DataRepository
+import com.xingyun.android.core.source.ArticleRepository
 
-class UserProfileViewModel(dataRepository: DataRepository) : ViewModel() {
+class UserProfileViewModel(articleRepository: ArticleRepository) : ViewModel() {
 
     private val _login = MutableLiveData<Unit>()
     val login: LiveData<Unit>

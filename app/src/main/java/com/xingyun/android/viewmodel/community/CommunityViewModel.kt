@@ -1,9 +1,9 @@
 package com.xingyun.android.viewmodel.community
 
 import androidx.lifecycle.ViewModel
-import com.xingyun.android.core.source.DataRepository
+import com.xingyun.android.core.source.ArticleRepository
 
-class CommunityViewModel(private val dataRepository: DataRepository) : ViewModel() {
+class CommunityViewModel(private val articleRepository: ArticleRepository) : ViewModel() {
 
 
 }

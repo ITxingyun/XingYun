@@ -7,10 +7,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xingyun.android.R
-import com.xingyun.android.core.source.DataRepository
+import com.xingyun.android.core.source.UserProfileRepository
 import kotlinx.coroutines.launch
 
-class LoginViewModel(private val dataRepository: DataRepository) : ViewModel() {
+class LoginViewModel(private val userProfileRepository: UserProfileRepository) : ViewModel() {
     val userName = MutableLiveData<String>()
 
     val password = MutableLiveData<String>()
@@ -27,7 +27,7 @@ class LoginViewModel(private val dataRepository: DataRepository) : ViewModel() {
     fun login() {
         viewModelScope.launch {
             if (verifyFiled()) {
-                val user = dataRepository.login(userName.value ?: "", password.value ?: "")
+                val user = userProfileRepository.login(userName.value ?: "", password.value ?: "")
                 Log.e("xxx", user.toString())
             }
         }

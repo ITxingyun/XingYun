@@ -1,8 +1,8 @@
 package com.xingyun.android.viewmodel.splash
 
 import androidx.lifecycle.ViewModel
-import com.xingyun.android.core.source.DataRepository
+import com.xingyun.android.core.source.UserProfileRepository
 
-class RegistryViewModel(private val dataRepository: DataRepository) : ViewModel() {
+class RegistryViewModel(private val userProfileRepository: UserProfileRepository) : ViewModel() {
 
 }

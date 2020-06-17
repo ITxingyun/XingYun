@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.xingyun.android.viewmodel.community.CommunityViewModel
 import com.xingyun.android.viewmodel.community.QuestionViewModel
-import com.xingyun.android.core.source.DataRepository
+import com.xingyun.android.core.source.ArticleRepository
+import com.xingyun.android.core.source.UserProfileRepository
 import com.xingyun.android.viewmodel.community.SquareViewModel
 import com.xingyun.android.viewmodel.home.HomeViewModel
 import com.xingyun.android.viewmodel.splash.LoginViewModel
@@ -14,7 +15,8 @@ import com.xingyun.android.viewmodel.webview.WebViewViewModel
 import javax.inject.Inject
 
 class XYViewModelFactory @Inject constructor(
-    private val dataRepository: DataRepository
+    private val articleRepository: ArticleRepository,
+    private val userProfileRepository: UserProfileRepository
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
@@ -22,25 +24,25 @@ class XYViewModelFactory @Inject constructor(
         return when {
             //splash
             modelClass.isAssignableFrom(LoginViewModel::class.java) ->
-                LoginViewModel(dataRepository)
+                LoginViewModel(userProfileRepository)
             modelClass.isAssignableFrom(RegistryViewModel::class.java) ->
-                RegistryViewModel(dataRepository)
+                RegistryViewModel(userProfileRepository)
 
             //home
             modelClass.isAssignableFrom(HomeViewModel::class.java) ->
-                HomeViewModel(dataRepository)
+                HomeViewModel(articleRepository)
 
             //Community
             modelClass.isAssignableFrom(CommunityViewModel::class.java) ->
-                CommunityViewModel(dataRepository)
+                CommunityViewModel(articleRepository)
             modelClass.isAssignableFrom(SquareViewModel::class.java) ->
-                SquareViewModel(dataRepository)
+                SquareViewModel(articleRepository)
             modelClass.isAssignableFrom(QuestionViewModel::class.java) ->
-                QuestionViewModel(dataRepository)
+                QuestionViewModel(articleRepository)
 
             //user
             modelClass.isAssignableFrom(UserProfileViewModel::class.java) ->
-                UserProfileViewModel(dataRepository)
+                UserProfileViewModel(articleRepository)
 
             //WebView
             modelClass.isAssignableFrom(WebViewViewModel::class.java) ->
