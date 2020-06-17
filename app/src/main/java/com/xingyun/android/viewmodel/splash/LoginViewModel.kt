@@ -1,5 +1,6 @@
 package com.xingyun.android.viewmodel.splash
 
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xingyun.android.R
 import com.xingyun.android.core.source.DataRepository
-import kotlinx.android.synthetic.main.fragment_login.view.*
 import kotlinx.coroutines.launch
 
 class LoginViewModel(private val dataRepository: DataRepository) : ViewModel() {
@@ -27,7 +27,8 @@ class LoginViewModel(private val dataRepository: DataRepository) : ViewModel() {
     fun login() {
         viewModelScope.launch {
             if (verifyFiled()) {
-                dataRepository.login(userName.value ?: "", password.value ?: "")
+                val user = dataRepository.login(userName.value ?: "", password.value ?: "")
+                Log.e("xxx", user.toString())
             }
         }
     }
