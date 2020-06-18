@@ -5,6 +5,9 @@ import retrofit2.http.*
 
 interface WebService {
 
+    @GET("/article/top/json")
+    suspend fun getTopArticles(): ApiResponse<List<Article>>
+
     @GET("/article/list/{page}/json")
     suspend fun getHomeArticles(@Path("page") page: Int): ApiResponse<ArticleList>
 

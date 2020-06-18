@@ -23,6 +23,7 @@
     <color name="coolgray_300">#CACCD0</color>
     <color name="coolgray_200">#E4E5E9</color>
     <color name="coolgray_100">#F5F6F8</color>
+    <color name="transparent_gray">#33F5F6F8</color>
     <color name="white">#FFFFFF</color>
 
     <color name="red_500">#C00404</color>

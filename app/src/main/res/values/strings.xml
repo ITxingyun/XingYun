@@ -5,6 +5,9 @@
     <string name="title_home">首页</string>
     <string name="title_community">社区</string>
     <string name="title_user">我的</string>
+
+    <!--Home-->
+    <string name="home_search_hint">搜索文章</string>
     
     <!--Splash-->
     <string name="login_user_name_error_msg">账户不能为空！</string>
