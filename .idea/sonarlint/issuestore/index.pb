@@ -25,8 +25,6 @@ v
 Fapp/src/main/java/com/xingyun/android/ui/community/QuestionFragment.kt,0/8/088e1925527c6d5f79dfe09b2ba42cab2b615fd1
 s
 Capp/src/main/java/com/xingyun/android/ui/webview/WebViewActivity.kt,a/9/a995ebd5b31baa9133378d4c1b5de86ff1491d3b
-j
-:app/src/main/java/com/xingyun/android/utils/ActivityExt.kt,c/4/c4b1c0467e99a4bbb4d7e349672f375d0d8baf89
 ~
 Napp/src/main/java/com/xingyun/android/viewmodel/community/QuestionViewModel.kt,f/f/ff694f45e2b75b49a9732709cc93e50ae9a37e1a
 {
@@ -35,8 +33,6 @@ U
 %app/src/main/res/drawable/ic_back.xml,0/3/038479b72a34d99d1c27091171c6e567e8906fe8
 ]
 -app/src/main/res/layout/fragment_web_view.xml,d/8/d82ebb053b2ebba7cf90feb9cf7ba698ec3c205b
-Y
-)app/src/main/res/layout/item_question.xml,c/3/c3a948c9a450a34ed3833ac2e459c4e5906e7c61
 L
 .idea/codeStyles/Project.xml,6/e/6ecd6000a7b6f4a2884412ff19f74193ed089648
 s
@@ -45,8 +41,6 @@ s
 Capp/src/main/java/com/xingyun/android/ui/splash/RegistryFragment.kt,1/8/187bcc5753c33b8e144a07431bd78b3b508036c4
 {
 Kapp/src/main/java/com/xingyun/android/viewmodel/splash/RegistryViewModel.kt,e/d/ed539011ed1f567480ff14f0e5f2dc4424509575
-|
-Lapp/src/main/java/com/xingyun/android/core/source/remote/RemoteDataSource.kt,e/2/e21c7c7bf40e50ef8305324ff953166bc31f9ae6
 j
 :app/src/main/java/com/xingyun/android/base/BaseActivity.kt,1/6/1671b7d3031c8a971332a5a54259c662a1cd3aeb
 r
@@ -57,8 +51,6 @@ x
 Happ/src/main/java/com/xingyun/android/core/http/cookies/OkHttpCookies.kt,0/0/00b12738ace79aec0e933a7c3d7bebf8e4fc0caa
 €
 Papp/src/main/java/com/xingyun/android/core/http/cookies/PersistentCookieStore.kt,6/a/6af9dc50751f741766da6db97bd1f505c478d481
-s
-Capp/src/main/java/com/xingyun/android/core/source/DataRepository.kt,4/5/455c9562ff7ae8404cc00103660f537d77b46b36
 p
 @app/src/main/java/com/xingyun/android/ui/splash/LoginFragment.kt,9/6/96e5dca157931dd76f6b9a163e9dbad4e093e91b
 q
@@ -81,17 +73,23 @@ Z
 *app/src/main/res/layout/fragment_login.xml,f/d/fdd3cd19e967c0f22eaa0b7f68fbd15e1a914b42
 S
 #app/src/main/res/values/strings.xml,d/2/d2281fbb3027de2722081a53408dd77628bf080e
-R
-"app/src/main/res/values/styles.xml,f/7/f79cc2688e29fcbc286fda14ae07b27c9e83690f
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 T
 $.idea/codeStyles/codeStyleConfig.xml,d/d/dd7b3350c29c49497756c7f32c69a3bed18b1cba
 p
 @app/src/main/java/com/xingyun/android/di/module/NetworkModule.kt,a/d/ad5783be992c5b9e7116c3fd3655c1a3d40ebeb6
-s
-Capp/src/main/java/com/xingyun/android/core/http/api/ResponseBody.kt,9/9/99dc5d3056327ecd83123d8c6b5105cce555b239
-o
-?app/src/main/java/com/xingyun/android/core/http/api/Resource.kt,1/2/12c6bd7d993a7ff4c5eeac4d70e2f7c43b3a825a
 q
 Aapp/src/main/java/com/xingyun/android/core/http/api/WebService.kt,3/7/377fd6e72b4a8d257696fa3497be6b0a4d624d2b
+o
+?app/src/main/java/com/xingyun/android/utils/AutoClearedValue.kt,3/5/35f5e6e1e737fb408976e167a4127d2db83f7547
+q
+Aapp/src/main/java/com/xingyun/android/ui/adapter/BannerAdapter.kt,4/c/4c22b111a5bd08f9008ce3c516db9bb0e1cda44b
+j
+:app/src/main/java/com/xingyun/android/core/model/Banner.kt,2/0/208afbb5b2bc8352bcb15585fe400975aeaa1703
+u
+Eapp/src/main/java/com/xingyun/android/base/DivideLineItemDecorator.kt,7/d/7dc1de34ea3a6a7f9869f7fb644b0b42ac2417ec
+u
+Eapp/src/main/java/com/xingyun/android/viewmodel/home/HomeViewModel.kt,7/3/735c63c0b167c487feb4b5d710b2ae8e028106ad
+m
+=app/src/main/java/com/xingyun/android/ui/home/HomeFragment.kt,5/4/54f359bb889283d4d435412ab083a73950e27225

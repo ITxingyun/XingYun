@@ -8,6 +8,7 @@ buildscript {
         mavenCentral()
         jcenter()
         maven { url 'https://oss.sonatype.org/content/repositories/public' }
+        maven { url 'https://jitpack.io' }
 
     }
     dependencies {

@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.MergeAdapter
 import com.xingyun.android.R
 import com.xingyun.android.base.AbstractMVVMFragment
+import com.xingyun.android.base.DivideLineItemDecorator
 import com.xingyun.android.databinding.FragmentHomeBinding
 import com.xingyun.android.ui.adapter.ArticleListAdapter
 import com.xingyun.android.ui.adapter.BannerPagerAdapter
@@ -17,15 +18,18 @@ class HomeFragment : AbstractMVVMFragment<FragmentHomeBinding, HomeViewModel>() 
 
     private var mergeAdapter: MergeAdapter by autoCleared()
     private var bannerPagerAdapter: BannerPagerAdapter by autoCleared()
-    private var articleAdapter : ArticleListAdapter<HomeViewModel> by autoCleared()
+    private var articleAdapter: ArticleListAdapter<HomeViewModel> by autoCleared()
 
     override val layoutResourceId: Int = R.layout.fragment_home
 
     override fun initView() {
         bannerPagerAdapter = BannerPagerAdapter()
-        articleAdapter = ArticleListAdapter(R.layout.item_question, viewModel)
+        articleAdapter = ArticleListAdapter(R.layout.item_top_article, viewModel)
         mergeAdapter = MergeAdapter(bannerPagerAdapter, articleAdapter)
-        binding.rvHome.adapter = mergeAdapter
+        binding.rvHome.apply {
+            adapter = mergeAdapter
+            addItemDecoration(DivideLineItemDecorator(resources))
+        }
     }
 
     override fun initData() {

@@ -12,7 +12,6 @@
     <style name="TextView">
         <item name="android:letterSpacing">0</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:fontFamily">@font/icomoon</item>
         <item name="android:fontFeatureSettings">lnum</item>
     </style>
     
@@ -49,7 +48,6 @@
         <item name="hintTextColor">@color/coolgray_500</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textColorHint">@color/coolgray_500</item>
-        <item name="android:fontFamily">@font/icomoon</item>
         <item name="helperTextTextColor">@color/coolgray_500</item>
         <item name="errorIconDrawable">@drawable/ic_warning</item>
         <item name="errorTextAppearance">@style/ErrorMsg</item>

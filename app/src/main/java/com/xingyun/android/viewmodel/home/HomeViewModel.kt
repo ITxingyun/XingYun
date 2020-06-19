@@ -25,10 +25,10 @@ class HomeViewModel(private val articleRepository: ArticleRepository) : ViewMode
             val banners = articleRepository.getBanners()
             if (banners is Result.Success) _banners.value = banners.data
 
-            val hotArticles = articleRepository.getTopArticles()
+            val topArticles = articleRepository.getTopArticles()
             val articles = articleRepository.getHomeArticles(1)
-            if (hotArticles is Result.Success && articles is Result.Success) {
-                _articles.value = hotArticles.data + articles.data.datas
+            if (topArticles is Result.Success && articles is Result.Success) {
+                _articles.value = topArticles.data + articles.data.datas
             }
         }
     }
