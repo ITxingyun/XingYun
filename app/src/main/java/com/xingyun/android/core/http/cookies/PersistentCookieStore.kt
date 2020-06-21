@@ -2,7 +2,7 @@ package com.xingyun.android.core.http.cookies
 
 import android.text.TextUtils
 import android.util.Log
-import com.xingyun.android.app.WanAndroidApplication
+import com.xingyun.android.common.app.WanAndroidApplication
 import okhttp3.Cookie
 import okhttp3.HttpUrl
 import java.io.*

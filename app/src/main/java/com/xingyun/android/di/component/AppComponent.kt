@@ -1,7 +1,7 @@
 package com.xingyun.android.di.component
 
 import android.content.Context
-import com.xingyun.android.app.WanAndroidApplication
+import com.xingyun.android.common.app.WanAndroidApplication
 import com.xingyun.android.di.module.*
 import dagger.BindsInstance
 import dagger.Component

@@ -5,6 +5,7 @@ import com.xingyun.android.core.http.api.WebService
 import com.xingyun.android.core.model.Article
 import com.xingyun.android.core.model.ArticleList
 import com.xingyun.android.core.model.Banner
+import com.xingyun.android.core.model.Category
 import com.xingyun.android.utils.apiCall
 
 class RemoteArticleDataSource(private val WebService: WebService) {
@@ -25,8 +26,12 @@ class RemoteArticleDataSource(private val WebService: WebService) {
         return apiCall{ WebService.loadQuestionsAndAnswers() }
     }
 
-    suspend fun loadSquareArticles(): Result<ArticleList> {
-        return apiCall{ WebService.loadSquareArticles() }
+    suspend fun getProjectList(page: Int, cid: Int): Result<ArticleList> {
+        return apiCall{ WebService.getProjectList(page, cid) }
+    }
+
+    suspend fun getProjectCategory(): Result<List<Category>> {
+        return apiCall{ WebService.getProjectCategory() }
     }
 
 

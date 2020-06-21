@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.youth.banner.Banner xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/banner"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    app:delay_time="@integer/banner_delay_time"
+    app:indicator_gravity="center"
+    app:indicator_normal_color="@color/midnight"
+    app:indicator_normal_width="12dp"
+    app:indicator_selected_color="@color/colorPrimary"
+    app:indicator_space="4dp" />

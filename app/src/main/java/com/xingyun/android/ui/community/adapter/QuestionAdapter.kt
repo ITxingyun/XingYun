@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.xingyun.android.viewmodel.community.QuestionViewModel
+import com.xingyun.android.ui.community.QuestionViewModel
 import com.xingyun.android.core.model.Article
 import com.xingyun.android.databinding.ItemQuestionBinding
 

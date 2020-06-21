@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.xingyun.android.viewmodel.community.SquareViewModel
+import com.xingyun.android.ui.community.SquareViewModel
 import com.xingyun.android.core.model.Article
 import com.xingyun.android.databinding.ItemSquareBinding
 

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="com.xingyun.android.core.model.Article" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_project"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:itemImageUrl="@{article.envelopePic}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            style="@style/Subhead"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:maxLength="2"
+            android:textColor="@color/midnight"
+            app:htmlText="@{article.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_project"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="音乐播放器" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_desc"
+            style="@style/Caption"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="10dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:text="@{article.desc}"
+            android:textColor="@color/coolgray_400"
+            app:layout_constraintBottom_toTopOf="@+id/tv_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_project"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:text="记得很久以前总记得：“onSaveInstanceState 会在系统意外杀死 Activity 时调用，或者横纵屏切换的时候调用”" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_time"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_time"
+            android:tint="@color/coolgray_400"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_project" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_time"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@{article.niceDate}"
+            android:textColor="@color/coolgray_400"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_time"
+            tools:text="2020-03-23 16:30" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_author"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{article.author}"
+            android:textColor="@color/coolgray_400"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_time"
+            tools:text="星云" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

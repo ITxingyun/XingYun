@@ -11,7 +11,7 @@
 
         <variable
             name="viewmodel"
-            type="com.xingyun.android.viewmodel.community.QuestionViewModel" />
+            type="com.xingyun.android.ui.community.QuestionViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

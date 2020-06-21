@@ -17,6 +17,8 @@ buildscript {
         classpath("com.tencent.matrix:matrix-gradle-plugin:${MATRIX_VERSION}") { changing = true }
         classpath "com.didiglobal.booster:booster-gradle-plugin:$booster_version"
         classpath 'com.tencent.bugly:symtabfileuploader:2.2.1'
+
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.0-rc01"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

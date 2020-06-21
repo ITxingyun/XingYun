@@ -5,8 +5,10 @@ import com.xingyun.android.ui.community.CommunityFragment
 import com.xingyun.android.ui.community.QuestionFragment
 import com.xingyun.android.ui.community.SquareFragment
 import com.xingyun.android.ui.home.HomeFragment
-import com.xingyun.android.ui.splash.LoginFragment
-import com.xingyun.android.ui.splash.RegistryFragment
+import com.xingyun.android.ui.project.ProductListFragment
+import com.xingyun.android.ui.project.ProjectFragment
+import com.xingyun.android.ui.login.LoginFragment
+import com.xingyun.android.ui.login.RegistryFragment
 import com.xingyun.android.ui.user.UserProfileFragment
 import com.xingyun.android.ui.webview.WebViewFragment
 import dagger.Module
@@ -35,6 +37,12 @@ abstract class AbstractAllFragmentModule {
 
     @ContributesAndroidInjector
     abstract fun communityFragmentInjector(): CommunityFragment
+
+    @ContributesAndroidInjector
+    abstract fun projectFragmentInjector(): ProjectFragment
+
+    @ContributesAndroidInjector
+    abstract fun productListFragmentInjector(): ProductListFragment
 
     @ContributesAndroidInjector
     abstract fun webViewFragmentInjector(): WebViewFragment

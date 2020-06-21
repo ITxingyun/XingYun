@@ -1,26 +1,26 @@
 package com.xingyun.android.ui.webview
 
-import android.os.Bundle
 import android.webkit.WebViewClient
 import androidx.fragment.app.viewModels
-import com.xingyun.android.base.AbstractMVVMFragment
+import androidx.navigation.fragment.navArgs
+import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.databinding.FragmentWebViewBinding
-import com.xingyun.android.viewmodel.webview.WebViewViewModel
 import com.xingyun.android.R
 
-class WebViewFragment : AbstractMVVMFragment<FragmentWebViewBinding, WebViewViewModel>() {
-
+class WebViewFragment : BaseVMFragment<FragmentWebViewBinding, WebViewViewModel>() {
     override val viewModel: WebViewViewModel by viewModels { viewModelFactory }
+
+    private val args: WebViewFragmentArgs by navArgs()
+
+    override val handleCallback: Boolean = true
 
     override val layoutResourceId: Int = R.layout.fragment_web_view
 
     private var url = ""
 
     override fun initView() {
-        arguments?.run {
-            url = getString(KEY_BUNDLE_WEB_VIEW_URL) ?: ""
-            binding.toolbar.title = getString(KEY_BUNDLE_WEB_VIEW_TITLE)
-        }
+        url = args.url
+//        binding.toolbar.title = args.title
 
         binding.webView.apply {
             webViewClient = WebViewClient()
@@ -29,19 +29,5 @@ class WebViewFragment : AbstractMVVMFragment<FragmentWebViewBinding, WebViewView
 
     override fun initData() {
         binding.webView.loadUrl(url)
-    }
-
-    companion object {
-        private const val KEY_BUNDLE_WEB_VIEW_URL = "key_bundle_web_view_url"
-        private const val KEY_BUNDLE_WEB_VIEW_TITLE = "key_bundle_web_view_title"
-
-        fun newInstance(title: String, url :String): WebViewFragment {
-            return WebViewFragment().apply {
-                arguments = Bundle().apply {
-                    putString(KEY_BUNDLE_WEB_VIEW_TITLE, title)
-                    putString(KEY_BUNDLE_WEB_VIEW_URL, url)
-                }
-            }
-        }
     }
 }

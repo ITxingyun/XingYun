@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.xingyun.android.ui.home.HomeViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,16 +44,19 @@
             android:id="@+id/homeRefreshLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:isRefresh="@{viewModel.uiState.showLoading}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:onRefresh="@{viewModel.refreshAction}">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_home"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_home_article" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

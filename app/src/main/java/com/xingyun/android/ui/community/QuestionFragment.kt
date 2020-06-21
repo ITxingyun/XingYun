@@ -2,20 +2,15 @@ package com.xingyun.android.ui.community
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.xingyun.android.base.AbstractMVVMFragment
-import com.xingyun.android.base.DivideLineItemDecorator
+import com.xingyun.android.common.base.BaseVMFragment
+import com.xingyun.android.common.base.DivideLineItemDecorator
 import com.xingyun.android.ui.community.adapter.QuestionAdapter
-import com.xingyun.android.viewmodel.community.QuestionViewModel
 import com.xingyun.android.databinding.FragmentQuestionBinding
 import com.xingyun.android.R
-import com.xingyun.android.ui.webview.WebViewActivity
-import com.xingyun.android.ui.webview.WebViewActivity.Companion.KEY_BUNDLE_WEB_VIEW_TITLE
-import com.xingyun.android.ui.webview.WebViewActivity.Companion.KEY_BUNDLE_WEB_VIEW_URL
 import com.xingyun.android.utils.EventObserver
 import com.xingyun.android.utils.autoCleared
-import com.xingyun.android.utils.start
 
-class QuestionFragment : AbstractMVVMFragment<FragmentQuestionBinding, QuestionViewModel>() {
+class QuestionFragment : BaseVMFragment<FragmentQuestionBinding, QuestionViewModel>() {
 
     override val viewModel by viewModels<QuestionViewModel> { viewModelFactory }
 
@@ -38,10 +33,7 @@ class QuestionFragment : AbstractMVVMFragment<FragmentQuestionBinding, QuestionV
 
     private fun navigation() {
         viewModel.articleDetailsDestination.observe(viewLifecycleOwner, EventObserver {
-            activity?.start<WebViewActivity>(configuration = {
-                putExtra(KEY_BUNDLE_WEB_VIEW_TITLE, it.title)
-                putExtra(KEY_BUNDLE_WEB_VIEW_URL, it.link)
-            })
+
         })
     }
 

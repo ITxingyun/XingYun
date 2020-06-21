@@ -3,13 +3,12 @@ package com.xingyun.android.ui.community
 import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.xingyun.android.R
-import com.xingyun.android.base.AbstractMVVMFragment
-import com.xingyun.android.viewmodel.community.CommunityViewModel
+import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.ui.community.adapter.CommunityPageAdapter
 import com.xingyun.android.databinding.FragmentCommunityBinding
 import com.xingyun.android.utils.autoCleared
 
-class CommunityFragment : AbstractMVVMFragment<FragmentCommunityBinding, CommunityViewModel>() {
+class CommunityFragment : BaseVMFragment<FragmentCommunityBinding, CommunityViewModel>() {
 
     override val viewModel by viewModels<CommunityViewModel> { viewModelFactory }
 

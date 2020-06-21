@@ -15,22 +15,22 @@ interface WebService {
     suspend fun getBanner(): ApiResponse<List<Banner>>
 
     @GET("/tree/json")
-    suspend fun getSystemType(): ApiResponse<List<Knowledge>>
+    suspend fun getSystemType(): ApiResponse<List<Category>>
 
     @GET("/article/list/{page}/json")
     suspend fun getSystemTypeDetail(@Path("page") page: Int, @Query("cid") cid: Int): ApiResponse<ArticleList>
 
     @GET("/project/tree/json")
-    suspend fun getProjectType(): ApiResponse<List<Knowledge>>
+    suspend fun getProjectCategory(): ApiResponse<List<Category>>
 
     @GET("/wxarticle/chapters/json")
-    suspend fun getBlogType(): ApiResponse<List<Knowledge>>
+    suspend fun getBlogType(): ApiResponse<List<Category>>
 
     @GET("/wxarticle/list/{id}/{page}/json")
     fun getBlogArticle(@Path("id") id: Int, @Path("page") page: Int): ApiResponse<ArticleList>
 
     @GET("/project/list/{page}/json")
-    suspend fun getProjectTypeDetail(@Path("page") page: Int, @Query("cid") cid: Int): ApiResponse<ArticleList>
+    suspend fun getProjectList(@Path("page") page: Int, @Query("cid") cid: Int): ApiResponse<ArticleList>
 
     @GET("/article/listproject/{page}/json")
     suspend fun getLastedProject(@Path("page") page: Int): ApiResponse<ArticleList>
@@ -63,9 +63,6 @@ interface WebService {
 
     @GET("wenda/list/1/json")
     suspend fun loadQuestionsAndAnswers(): ApiResponse<ArticleList>
-
-    @GET("user_article/list/0/json")
-    suspend fun loadSquareArticles(): ApiResponse<ArticleList>
 
     @FormUrlEncoded
     @POST("user/login")

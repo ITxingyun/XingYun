@@ -17,13 +17,12 @@
     <color name="indigo_500">#518AD7</color>
     <color name="indigo_400">#8DBEFF</color>
 
-    <color name="midnight">#061929</color>
+    <color name="midnight">#000000</color>
     <color name="coolgray_500">#6D7179</color>
     <color name="coolgray_400">#9699A0</color>
     <color name="coolgray_300">#CACCD0</color>
     <color name="coolgray_200">#E4E5E9</color>
     <color name="coolgray_100">#F5F6F8</color>
-    <color name="transparent_gray">#33F5F6F8</color>
     <color name="white">#FFFFFF</color>
 
     <color name="red_500">#C00404</color>
@@ -45,4 +44,7 @@
     <color name="teal_500">#00988B</color>
     <color name="teal_400">#75CDC0</color>
     <color name="teal_300">#ACE9E0</color>
+
+    <color name="transparent">#66000000</color>
+    <color name="transparent_gray">#33F5F6F8</color>
 </resources>

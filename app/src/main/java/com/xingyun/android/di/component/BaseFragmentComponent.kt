@@ -1,6 +1,6 @@
 package com.xingyun.android.di.component
 
-import com.xingyun.android.base.BaseFragment
+import com.xingyun.android.common.base.BaseFragment
 import dagger.Subcomponent
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector

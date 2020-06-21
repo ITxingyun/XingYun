@@ -2,11 +2,9 @@ package com.xingyun.android.ui.community.adapter
 
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.xingyun.android.R
-import com.xingyun.android.base.BaseFragment
+import com.xingyun.android.common.base.BaseFragment
 import com.xingyun.android.ui.community.QuestionFragment
 import com.xingyun.android.ui.community.SquareFragment
 

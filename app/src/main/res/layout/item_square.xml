@@ -11,7 +11,7 @@
 
         <variable
             name="viewmodel"
-            type="com.xingyun.android.viewmodel.community.SquareViewModel" />
+            type="com.xingyun.android.ui.community.SquareViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

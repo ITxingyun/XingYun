@@ -4,8 +4,6 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.xingyun.android.core.model.Article
-import com.xingyun.android.core.model.ProjectCategory
-import com.xingyun.android.core.model.Tag
 import com.xingyun.android.core.model.TagsConverters
 
 @Database(

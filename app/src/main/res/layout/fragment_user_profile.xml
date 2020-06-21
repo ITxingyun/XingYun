@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.xingyun.android.viewmodel.user.UserProfileViewModel" />
+            type="com.xingyun.android.ui.user.UserProfileViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
