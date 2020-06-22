@@ -2,6 +2,7 @@ package com.xingyun.android.ui.webview
 
 import android.webkit.WebViewClient
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.databinding.FragmentWebViewBinding
@@ -12,15 +13,18 @@ class WebViewFragment : BaseVMFragment<FragmentWebViewBinding, WebViewViewModel>
 
     private val args: WebViewFragmentArgs by navArgs()
 
-    override val handleCallback: Boolean = true
-
     override val layoutResourceId: Int = R.layout.fragment_web_view
 
     private var url = ""
 
     override fun initView() {
         url = args.url
-//        binding.toolbar.title = args.title
+        binding.toolbar.apply {
+            title = args.title
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
 
         binding.webView.apply {
             webViewClient = WebViewClient()

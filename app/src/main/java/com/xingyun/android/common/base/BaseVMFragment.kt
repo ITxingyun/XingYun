@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
-import androidx.navigation.fragment.findNavController
 import com.xingyun.android.BR
 import com.xingyun.android.utils.autoCleared
 
@@ -18,17 +16,6 @@ abstract class BaseVMFragment<B : ViewDataBinding, VM : ViewModel> : BaseFragmen
     protected abstract val viewModel: VM
 
     protected abstract val layoutResourceId: Int
-
-    protected open val handleCallback = false
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(handleCallback) {
-            override fun handleOnBackPressed() {
-                findNavController().popBackStack()
-            }
-        })
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             DataBindingUtil.inflate<B>(inflater, layoutResourceId, container, false).also {
