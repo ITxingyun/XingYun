@@ -9,7 +9,7 @@ interface WebService {
     suspend fun getTopArticles(): ApiResponse<List<Article>>
 
     @GET("/article/list/{page}/json")
-    suspend fun getHomeArticles(@Path("page") page: Int): ApiResponse<ArticleList>
+    suspend fun getRecommendArticles(@Path("page") page: Int): ApiResponse<ArticleList>
 
     @GET("/banner/json")
     suspend fun getBanner(): ApiResponse<List<Banner>>
@@ -55,14 +55,14 @@ interface WebService {
     suspend fun cancelCollectArticle(@Path("id") id: Int): ApiResponse<ArticleList>
 
     @GET("/user_article/list/{page}/json")
-    suspend fun getSquareArticleList(@Path("page") page: Int): ApiResponse<ArticleList>
+    suspend fun getSquareArticles(@Path("page") page: Int): ApiResponse<ArticleList>
 
     @FormUrlEncoded
     @POST("/lg/user_article/add/json")
     suspend fun shareArticle(@Field("title") title: String, @Field("link") url: String): ApiResponse<String>
 
-    @GET("wenda/list/1/json")
-    suspend fun loadQuestionsAndAnswers(): ApiResponse<ArticleList>
+    @GET("wenda/list/{page}/json")
+    suspend fun getQuestions(@Path("page") page: Int): ApiResponse<ArticleList>
 
     @FormUrlEncoded
     @POST("user/login")

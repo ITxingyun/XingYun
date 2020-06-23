@@ -1,4 +1,4 @@
-package com.xingyun.android.utils
+package com.xingyun.android.common.ext
 
 import android.os.Build
 import android.view.View

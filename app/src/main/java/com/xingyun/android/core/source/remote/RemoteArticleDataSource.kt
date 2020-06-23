@@ -18,12 +18,16 @@ class RemoteArticleDataSource(private val WebService: WebService) {
         return apiCall{ WebService.getTopArticles() }
     }
 
-    suspend fun getHomeArticles(page: Int): Result<ArticleList> {
-        return apiCall{ WebService.getHomeArticles(page) }
+    suspend fun getRecommendArticles(page: Int): Result<ArticleList> {
+        return apiCall{ WebService.getRecommendArticles(page) }
     }
 
-    suspend fun loadQuestionsAndAnswers(): Result<ArticleList> {
-        return apiCall{ WebService.loadQuestionsAndAnswers() }
+    suspend fun getQuestions(page: Int): Result<ArticleList> {
+        return apiCall{ WebService.getQuestions(page) }
+    }
+
+    suspend fun getSquareArticles(page: Int): Result<ArticleList> {
+        return apiCall{ WebService.getSquareArticles(page) }
     }
 
     suspend fun getProjectList(page: Int, cid: Int): Result<ArticleList> {

@@ -17,16 +17,20 @@ class ArticleRepository @Inject constructor(
         return remoteArticleDataSource.loadBanner()
     }
 
-    suspend fun loadQuestionsAndAnswers(): Result<ArticleList> {
-        return remoteArticleDataSource.loadQuestionsAndAnswers()
+    suspend fun getQuestions(page: Int): Result<ArticleList> {
+        return remoteArticleDataSource.getQuestions(page)
+    }
+
+    suspend fun getSquareArticles(page: Int): Result<ArticleList> {
+        return remoteArticleDataSource.getSquareArticles(page)
     }
 
     suspend fun getTopArticles(): Result<List<Article>> {
         return remoteArticleDataSource.getTopArticles()
     }
 
-    suspend fun getHomeArticles(page: Int): Result<ArticleList> {
-        return remoteArticleDataSource.getHomeArticles(page)
+    suspend fun getRecommendArticles(page: Int): Result<ArticleList> {
+        return remoteArticleDataSource.getRecommendArticles(page)
     }
 
     suspend fun getProjectCategory(): Result<List<Category>> {

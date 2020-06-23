@@ -1,14 +1,21 @@
 <resources>
     <string name="app_name">学Android</string>
 
-    <!--Title-->
-    <string name="title_home">首页</string>
-    <string name="title_community">社区</string>
-    <string name="title_project">项目</string>
-    <string name="title_user">我的</string>
+    <!--tab-->
+    <string name="nav_title_home">首页</string>
+    <string name="nav_title_community">社区</string>
+    <string name="nav_title_search">搜索</string>
+    <string name="nav_title_project">项目</string>
+    <string name="nav_title_user">我的</string>
 
     <!--Home-->
-    <string name="home_search_hint">搜索文章</string>
+    <string name="home_tab_recommend">推荐</string>
+    <string name="home_tab_square">广场</string>
+    <string name="home_tab_question_and_answer">问答</string>
+
+
+    <!--Search-->
+    <string name="search_hint">搜索文章</string>
 
     <!--Splash-->
     <string name="login_user_name_error_msg">账户不能为空！</string>
@@ -18,11 +25,5 @@
 
     <!--我的-->
     <string name="user_profile_login">登录</string>
-
-    <!--问答-->
-    <string name="community_tab_question_and_square">广场</string>
-    <string name="community_tab_question_and_answer">问答</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -4,17 +4,11 @@ import androidx.lifecycle.*
 import com.xingyun.android.common.base.BaseViewModel
 import com.xingyun.android.core.http.api.Result
 import com.xingyun.android.core.model.ArticleList
-import com.xingyun.android.core.model.Banner
 import com.xingyun.android.core.source.ArticleRepository
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val articleRepository: ArticleRepository) : BaseViewModel<ArticleList>() {
     private var currentPage = 0
-
-    val banners: LiveData<List<Banner>> = liveData {
-        val data = articleRepository.getBanners()
-        if (data is Result.Success) emit(data.data)
-    }
 
     val refreshAction: () -> Unit = { getHomeArticles(true) }
 
@@ -23,7 +17,7 @@ class HomeViewModel(private val articleRepository: ArticleRepository) : BaseView
             emitUiState(true)
             if (isRefresh) currentPage = 0
 
-            val result = articleRepository.getHomeArticles(currentPage)
+            val result = articleRepository.getRecommendArticles(currentPage)
             if (result is Result.Success) {
                 val articleList = result.data
                 if (articleList.offset >= articleList.total) {

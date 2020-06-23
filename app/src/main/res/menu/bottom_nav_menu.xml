@@ -4,21 +4,26 @@
     <item
         android:id="@+id/menu_home"
         android:icon="@drawable/ic_home"
-        android:title="@string/title_home" />
+        android:title="@string/nav_title_home" />
 
     <item
-        android:id="@+id/menu_xxx"
+        android:id="@+id/menu_system"
         android:icon="@drawable/ic_community"
-        android:title="@string/title_community" />
+        android:title="@string/nav_title_community" />
+
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/nav_title_search" />
 
     <item
         android:id="@+id/menu_project"
-        android:icon="@drawable/ic_home"
-        android:title="@string/title_project" />
+        android:icon="@drawable/ic_project"
+        android:title="@string/nav_title_project" />
 
     <item
         android:id="@+id/menu_user_profile"
         android:icon="@drawable/ic_user"
-        android:title="@string/title_user" />
+        android:title="@string/nav_title_user" />
 
 </menu>

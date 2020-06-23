@@ -1,5 +1,6 @@
 package com.xingyun.android.utils
 
+import com.xingyun.android.common.exception.DataException
 import com.xingyun.android.core.http.api.ApiResponse
 import com.xingyun.android.core.http.api.Result
 import java.io.IOException
