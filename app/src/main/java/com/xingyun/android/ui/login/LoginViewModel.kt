@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xingyun.android.R
-import com.xingyun.android.core.source.UserProfileRepository
+import com.xingyun.android.model.source.UserProfileRepository
 import kotlinx.coroutines.launch
 
 class LoginViewModel(private val userProfileRepository: UserProfileRepository) : ViewModel() {

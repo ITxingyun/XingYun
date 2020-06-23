@@ -1,9 +1,12 @@
 package com.xingyun.android.ui.project
 
-import androidx.lifecycle.*
-import com.xingyun.android.core.http.api.Result
-import com.xingyun.android.core.model.Category
-import com.xingyun.android.core.source.ArticleRepository
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.xingyun.android.model.bean.Category
+import com.xingyun.android.model.http.api.Result
+import com.xingyun.android.model.source.ArticleRepository
 import kotlinx.coroutines.launch
 
 class ProjectViewModel(private val articleRepository: ArticleRepository) : ViewModel() {

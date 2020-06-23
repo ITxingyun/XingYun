@@ -3,7 +3,7 @@ package com.xingyun.android.ui.user
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.xingyun.android.core.source.ArticleRepository
+import com.xingyun.android.model.source.ArticleRepository
 
 class UserProfileViewModel(articleRepository: ArticleRepository) : ViewModel() {
 

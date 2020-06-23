@@ -1,15 +1,13 @@
 package com.xingyun.android.ui.search
 
-import android.view.LayoutInflater
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.R
-import com.xingyun.android.core.model.Banner
+import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.databinding.FragmentSearchBinding
+import com.xingyun.android.model.bean.Banner
 import com.xingyun.android.ui.adapter.HomeBannerAdapter
 import com.xingyun.android.utils.autoCleared
-import com.youth.banner.indicator.RectangleIndicator
 
 class SearchFragment: BaseVMFragment<FragmentSearchBinding, SearchViewModel>() {
 
@@ -23,6 +21,10 @@ class SearchFragment: BaseVMFragment<FragmentSearchBinding, SearchViewModel>() {
 
     override fun initView() {
         initBanner()
+    }
+
+    override fun initData() {
+
     }
 
     private fun initBanner() {

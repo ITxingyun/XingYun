@@ -3,8 +3,8 @@ package com.xingyun.android.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.xingyun.android.core.model.Banner
 import com.xingyun.android.databinding.ItemBannerBinding
+import com.xingyun.android.model.bean.Banner
 import com.youth.banner.adapter.BannerAdapter
 
 class HomeBannerAdapter: BannerAdapter<Banner, BannerViewHolder>(mutableListOf()) {

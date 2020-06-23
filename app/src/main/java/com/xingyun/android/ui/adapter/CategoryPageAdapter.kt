@@ -2,7 +2,7 @@ package com.xingyun.android.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.xingyun.android.core.model.Category
+import com.xingyun.android.model.bean.Category
 
 class CategoryPageAdapter(
         fragment: Fragment

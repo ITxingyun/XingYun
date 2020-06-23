@@ -3,7 +3,7 @@
 
     <!--tab-->
     <string name="nav_title_home">首页</string>
-    <string name="nav_title_community">社区</string>
+    <string name="nav_title_system">体系</string>
     <string name="nav_title_search">搜索</string>
     <string name="nav_title_project">项目</string>
     <string name="nav_title_user">我的</string>
@@ -12,10 +12,11 @@
     <string name="home_tab_recommend">推荐</string>
     <string name="home_tab_square">广场</string>
     <string name="home_tab_question_and_answer">问答</string>
+    <string name="home_tab_project">最新项目</string>
 
 
     <!--Search-->
-    <string name="search_hint">搜索文章</string>
+    <string name="search_hint">搜索文章、用户、标签</string>
 
     <!--Splash-->
     <string name="login_user_name_error_msg">账户不能为空！</string>

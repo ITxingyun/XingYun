@@ -6,7 +6,7 @@
 
         <variable
             name="banner"
-            type="com.xingyun.android.core.model.Banner" />
+            type="com.xingyun.android.model.bean.Banner" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

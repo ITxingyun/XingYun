@@ -4,8 +4,9 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.xingyun.android.R
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.ArticleType
 import com.xingyun.android.ui.article.ArticlesFragment
+import com.xingyun.android.ui.article.ArticlesFragment.Companion.ArticleType
+import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_PROJECT
 import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_QUESTION
 import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_RECOMMEND
 import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_SQUARE
@@ -25,7 +26,8 @@ class HomePageAdapter(
         private val communityTabSpec = listOf(
                 HomeTabSpec(TYPE_RECOMMEND, R.string.home_tab_recommend),
                 HomeTabSpec(TYPE_SQUARE, R.string.home_tab_square),
-                HomeTabSpec(TYPE_QUESTION, R.string.home_tab_question_and_answer)
+                HomeTabSpec(TYPE_QUESTION, R.string.home_tab_question_and_answer),
+                HomeTabSpec(TYPE_PROJECT, R.string.home_tab_project)
         )
 
         private class HomeTabSpec(

@@ -2,10 +2,10 @@ package com.xingyun.android.di.module
 
 import android.content.Context
 import androidx.room.Room
-import com.xingyun.android.core.http.api.WebService
-import com.xingyun.android.core.source.local.LocalArticleDataSource
-import com.xingyun.android.core.source.local.db.AppDatabase
-import com.xingyun.android.core.source.remote.RemoteArticleDataSource
+import com.xingyun.android.model.http.api.WebService
+import com.xingyun.android.model.source.local.LocalArticleDataSource
+import com.xingyun.android.model.source.local.db.AppDatabase
+import com.xingyun.android.model.source.remote.RemoteArticleDataSource
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

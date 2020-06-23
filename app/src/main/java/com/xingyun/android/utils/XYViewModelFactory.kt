@@ -2,14 +2,12 @@ package com.xingyun.android.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.xingyun.android.core.source.ArticleRepository
-import com.xingyun.android.core.source.UserProfileRepository
+import com.xingyun.android.model.source.ArticleRepository
+import com.xingyun.android.model.source.UserProfileRepository
 import com.xingyun.android.ui.article.ArticlesViewModel
-import com.xingyun.android.ui.home.HomeViewModel
-import com.xingyun.android.ui.project.ProductListViewModel
-import com.xingyun.android.ui.project.ProjectViewModel
 import com.xingyun.android.ui.login.LoginViewModel
 import com.xingyun.android.ui.login.RegistryViewModel
+import com.xingyun.android.ui.project.ProjectViewModel
 import com.xingyun.android.ui.search.SearchViewModel
 import com.xingyun.android.ui.system.SystemViewModel
 import com.xingyun.android.ui.user.UserProfileViewModel
@@ -30,10 +28,6 @@ class XYViewModelFactory @Inject constructor(
             modelClass.isAssignableFrom(RegistryViewModel::class.java) ->
                 RegistryViewModel(userProfileRepository)
 
-            //home
-            modelClass.isAssignableFrom(HomeViewModel::class.java) ->
-                HomeViewModel(articleRepository)
-
             modelClass.isAssignableFrom(ArticlesViewModel::class.java) ->
                 ArticlesViewModel(articleRepository)
 
@@ -48,8 +42,6 @@ class XYViewModelFactory @Inject constructor(
             //project
             modelClass.isAssignableFrom(ProjectViewModel::class.java) ->
                 ProjectViewModel(articleRepository)
-            modelClass.isAssignableFrom(ProductListViewModel::class.java) ->
-                ProductListViewModel(articleRepository)
 
             //user
             modelClass.isAssignableFrom(UserProfileViewModel::class.java) ->

@@ -3,10 +3,9 @@ package com.xingyun.android.di.module
 import com.xingyun.android.di.component.BaseFragmentComponent
 import com.xingyun.android.ui.article.ArticlesFragment
 import com.xingyun.android.ui.home.HomeFragment
-import com.xingyun.android.ui.project.ProductListFragment
-import com.xingyun.android.ui.project.ProjectFragment
 import com.xingyun.android.ui.login.LoginFragment
 import com.xingyun.android.ui.login.RegistryFragment
+import com.xingyun.android.ui.project.ProjectFragment
 import com.xingyun.android.ui.search.SearchFragment
 import com.xingyun.android.ui.system.SystemFragment
 import com.xingyun.android.ui.user.UserProfileFragment
@@ -34,9 +33,6 @@ abstract class AbstractAllFragmentModule {
 
     @ContributesAndroidInjector
     abstract fun projectFragmentInjector(): ProjectFragment
-
-    @ContributesAndroidInjector
-    abstract fun productListFragmentInjector(): ProductListFragment
 
     @ContributesAndroidInjector
     abstract fun searchFragmentInjector(): SearchFragment

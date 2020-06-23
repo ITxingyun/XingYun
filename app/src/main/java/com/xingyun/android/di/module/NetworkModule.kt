@@ -1,7 +1,7 @@
 package com.xingyun.android.di.module
 
-import com.xingyun.android.core.http.api.WebService
-import com.xingyun.android.core.http.cookies.CookiesManager
+import com.xingyun.android.model.http.api.WebService
+import com.xingyun.android.model.http.cookies.CookiesManager
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
