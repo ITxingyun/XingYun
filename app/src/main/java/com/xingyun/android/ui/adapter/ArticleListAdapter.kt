@@ -8,15 +8,10 @@ import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.xingyun.android.BR
 import com.xingyun.android.R
 import com.xingyun.android.model.bean.Article
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.ArticleType
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_LATEST_PROJECT
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_PROJECT
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_QUESTION
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_RECOMMEND
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_SQUARE
+import com.xingyun.android.ui.article.ArticleType
 
 class ArticleListAdapter(
-        @ArticleType articleType: Int
+        articleType: ArticleType
 ) : BaseQuickAdapter<Article, BaseDataBindingHolder<ViewDataBinding>>(generateLayoutRes(articleType)), LoadMoreModule {
 
     override fun convert(holder: BaseDataBindingHolder<ViewDataBinding>, item: Article) {
@@ -25,14 +20,19 @@ class ArticleListAdapter(
 
     companion object {
         @LayoutRes
-        fun generateLayoutRes(@ArticleType articleType: Int): Int {
+        fun generateLayoutRes(articleType: ArticleType): Int {
             return when (articleType) {
-                TYPE_RECOMMEND -> R.layout.item_recommend_article
-                TYPE_SQUARE -> R.layout.item_recommend_article
-                TYPE_QUESTION -> R.layout.item_question
-                TYPE_PROJECT -> R.layout.item_project
-                TYPE_LATEST_PROJECT -> R.layout.item_project
-                else -> R.layout.item_recommend_article
+                ArticleType.Recommend -> R.layout.item_recommend_article
+
+                ArticleType.Square -> R.layout.item_recommend_article
+
+                ArticleType.Question -> R.layout.item_question
+
+                ArticleType.LatestProject -> R.layout.item_project
+
+                ArticleType.Project -> R.layout.item_project
+
+                ArticleType.Blog -> R.layout.item_recommend_article
             }
         }
     }

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.xingyun.android.model.source.ArticleRepository
 import com.xingyun.android.model.source.UserProfileRepository
 import com.xingyun.android.ui.article.ArticlesViewModel
+import com.xingyun.android.ui.blog.BlogViewModel
 import com.xingyun.android.ui.login.LoginViewModel
 import com.xingyun.android.ui.login.RegistryViewModel
 import com.xingyun.android.ui.project.ProjectViewModel
@@ -30,6 +31,10 @@ class XYViewModelFactory @Inject constructor(
 
             modelClass.isAssignableFrom(ArticlesViewModel::class.java) ->
                 ArticlesViewModel(articleRepository)
+
+            //blog
+            modelClass.isAssignableFrom(BlogViewModel::class.java) ->
+                BlogViewModel(articleRepository)
 
             //system
             modelClass.isAssignableFrom(SystemViewModel::class.java) ->

@@ -2,6 +2,7 @@ package com.xingyun.android.di.module
 
 import com.xingyun.android.di.component.BaseFragmentComponent
 import com.xingyun.android.ui.article.ArticlesFragment
+import com.xingyun.android.ui.blog.BlogFragment
 import com.xingyun.android.ui.home.HomeFragment
 import com.xingyun.android.ui.login.LoginFragment
 import com.xingyun.android.ui.login.RegistryFragment
@@ -24,6 +25,9 @@ abstract class AbstractAllFragmentModule {
 
     @ContributesAndroidInjector
     abstract fun homeFragmentInjector(): HomeFragment
+
+    @ContributesAndroidInjector
+    abstract fun blogFragmentInjector(): BlogFragment
 
     @ContributesAndroidInjector
     abstract fun articlesFragmentInjector(): ArticlesFragment

@@ -33,6 +33,7 @@ data class Article(
         val selfVisible: Int,
         val shareDate: Long?,
         val shareUser: String,
+        val realSuperChapterId: Int,
         val superChapterId: Int,
         val superChapterName: String,
         val tags: List<Tag>?,

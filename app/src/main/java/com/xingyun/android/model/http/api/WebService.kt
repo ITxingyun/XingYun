@@ -24,10 +24,10 @@ interface WebService {
     suspend fun getProjectCategory(): ApiResponse<List<Category>>
 
     @GET("/wxarticle/chapters/json")
-    suspend fun getBlogType(): ApiResponse<List<Category>>
+    suspend fun getBlogCategory(): ApiResponse<List<Category>>
 
     @GET("/wxarticle/list/{id}/{page}/json")
-    fun getBlogArticle(@Path("id") id: Int, @Path("page") page: Int): ApiResponse<ArticleList>
+    suspend fun getBlogArticles(@Path("id") id: Int, @Path("page") page: Int): ApiResponse<ArticleList>
 
     @GET("/project/list/{page}/json")
     suspend fun getProjectList(@Path("page") page: Int, @Query("cid") cid: Int): ApiResponse<ArticleList>

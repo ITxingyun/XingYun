@@ -5,6 +5,7 @@ import com.xingyun.android.model.http.cookies.CookiesManager
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
@@ -15,12 +16,19 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
+    }
+
+    @Singleton
+    @Provides
+    fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
                 .readTimeout(READ_TIME_OUT, TimeUnit.MILLISECONDS)
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.MILLISECONDS)
                 .writeTimeout(WRITE_TIME_OUT, TimeUnit.MILLISECONDS)
                 .cookieJar(CookiesManager())
+                .addInterceptor(httpLoggingInterceptor)
                 .build()
     }
 

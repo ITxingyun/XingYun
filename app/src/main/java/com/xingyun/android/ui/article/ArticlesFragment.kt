@@ -1,6 +1,5 @@
 package com.xingyun.android.ui.article
 
-import androidx.annotation.IntDef
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -21,12 +20,13 @@ class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewMod
 
     private var adapter: ArticleListAdapter by autoCleared()
 
-    private var articleType by Delegates.notNull<Int>()
+    private lateinit var articleType: ArticleType
+
     private var cid: Int? = null
 
     override fun initView() {
         cid = arguments?.getInt(KEY_BUNDLE_CID)
-        articleType = arguments?.getInt(KEY_BUNDLE_ARTICLE_TYPE) ?: TYPE_RECOMMEND
+        articleType = arguments?.getSerializable(KEY_BUNDLE_ARTICLE_TYPE) as ArticleType
         initAdapter()
         binding.rvArticles.apply {
             adapter = this@ArticlesFragment.adapter
@@ -76,7 +76,7 @@ class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewMod
         private const val KEY_BUNDLE_CID = "key_bundle_cid"
         private const val KEY_BUNDLE_ARTICLE_TYPE = "key_bundle_article_type"
 
-        fun newInstance(@ArticleType articleType: Int, cid : Int? = null): ArticlesFragment {
+        fun newInstance(articleType: ArticleType, cid: Int? = null): ArticlesFragment {
             return ArticlesFragment().apply {
                 arguments = bundleOf(
                         KEY_BUNDLE_CID to cid,
@@ -84,15 +84,6 @@ class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewMod
                 )
             }
         }
-
-        const val TYPE_RECOMMEND = 0
-        const val TYPE_SQUARE = 1
-        const val TYPE_QUESTION = 2
-        const val TYPE_PROJECT = 3
-        const val TYPE_LATEST_PROJECT = 4
-
-        @IntDef(value = [TYPE_RECOMMEND, TYPE_SQUARE, TYPE_QUESTION, TYPE_PROJECT, TYPE_LATEST_PROJECT])
-        @Retention(AnnotationRetention.SOURCE)
-        annotation class ArticleType
     }
+
 }

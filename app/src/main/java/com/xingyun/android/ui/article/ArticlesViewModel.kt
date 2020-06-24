@@ -2,20 +2,13 @@ package com.xingyun.android.ui.article
 
 import androidx.lifecycle.viewModelScope
 import com.xingyun.android.common.base.BaseViewModel
-import com.xingyun.android.common.exception.DataException
 import com.xingyun.android.model.bean.ArticleList
 import com.xingyun.android.model.http.api.Result
 import com.xingyun.android.model.source.ArticleRepository
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.ArticleType
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_LATEST_PROJECT
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_PROJECT
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_QUESTION
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_RECOMMEND
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_SQUARE
 import kotlinx.coroutines.launch
 
 class ArticlesViewModel(private val articleRepository: ArticleRepository) : BaseViewModel<ArticleList>() {
-    private var articleType: Int = 0
+    private lateinit var articleType: ArticleType
 
     private var currentPage = 0
 
@@ -23,7 +16,7 @@ class ArticlesViewModel(private val articleRepository: ArticleRepository) : Base
 
     val refreshAction: () -> Unit = { fetchArticles(articleType, cid, true) }
 
-    fun fetchArticles(@ArticleType articleType: Int, cid: Int? = null, isRefresh: Boolean = false) {
+    fun fetchArticles(articleType: ArticleType, cid: Int? = null, isRefresh: Boolean = false) {
         viewModelScope.launch {
             emitUiState(true)
             if (isRefresh) currentPage = 0
@@ -45,19 +38,19 @@ class ArticlesViewModel(private val articleRepository: ArticleRepository) : Base
         }
     }
 
-    private suspend fun getArticle(@ArticleType articleType: Int, cid: Int?): Result<ArticleList> {
+    private suspend fun getArticle(articleType: ArticleType, cid: Int?): Result<ArticleList> {
         return when (articleType) {
-            TYPE_RECOMMEND -> articleRepository.getRecommendArticles(currentPage)
+            ArticleType.Recommend -> articleRepository.getRecommendArticles(currentPage)
 
-            TYPE_SQUARE -> articleRepository.getSquareArticles(currentPage)
+            ArticleType.Square -> articleRepository.getSquareArticles(currentPage)
 
-            TYPE_QUESTION -> articleRepository.getQuestions(currentPage)
+            ArticleType.Question -> articleRepository.getQuestions(currentPage)
 
-            TYPE_PROJECT -> articleRepository.getProjectList(currentPage, cid ?: 0)
+            ArticleType.LatestProject -> articleRepository.getLatestProject(currentPage)
 
-            TYPE_LATEST_PROJECT -> articleRepository.getLatestProject(currentPage)
+            ArticleType.Project -> articleRepository.getProjectList(currentPage, cid ?: 0)
 
-            else -> Result.Error(DataException("未知错误"))
+            ArticleType.Blog -> articleRepository.getBlogArticles(cid ?: 0, currentPage)
         }
     }
 }

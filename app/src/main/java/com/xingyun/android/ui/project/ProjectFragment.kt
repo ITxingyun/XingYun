@@ -7,8 +7,8 @@ import com.xingyun.android.R
 import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.databinding.FragmentProjectBinding
 import com.xingyun.android.ui.adapter.CategoryPageAdapter
+import com.xingyun.android.ui.article.ArticleType
 import com.xingyun.android.ui.article.ArticlesFragment
-import com.xingyun.android.ui.article.ArticlesFragment.Companion.TYPE_PROJECT
 import com.xingyun.android.utils.autoCleared
 
 class ProjectFragment : BaseVMFragment<FragmentProjectBinding, ProjectViewModel>() {
@@ -28,12 +28,13 @@ class ProjectFragment : BaseVMFragment<FragmentProjectBinding, ProjectViewModel>
     }
 
     override fun initData() {
-        viewModel.run {
-            projectCategory.observe(viewLifecycleOwner, Observer { categories ->
-                adapter.update(categories) { ArticlesFragment.newInstance(TYPE_PROJECT, it.id) }
-            })
+        viewModel.loadProjectCategory()
+    }
 
-            loadProjectCategory()
-        }
+    override fun observe() {
+        viewModel.projectCategory.observe(viewLifecycleOwner, Observer { categories ->
+            adapter.update(categories) { ArticlesFragment.newInstance(ArticleType.Project, it.id) }
+        })
+
     }
 }

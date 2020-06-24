@@ -38,11 +38,17 @@ class RemoteArticleDataSource(private val WebService: WebService) {
         return apiCall{ WebService.getProjectList(page, cid) }
     }
 
+    suspend fun getBlogArticles(cid: Int, page: Int): Result<ArticleList> {
+        return apiCall{ WebService.getBlogArticles(cid, page) }
+    }
+
+    suspend fun getBlogCategory(): Result<List<Category>> {
+        return apiCall{ WebService.getBlogCategory() }
+    }
+
     suspend fun getProjectCategory(): Result<List<Category>> {
         return apiCall{ WebService.getProjectCategory() }
     }
-
-
 
 
 }

@@ -37,12 +37,19 @@ class ArticleRepository @Inject constructor(
         return remoteArticleDataSource.getRecommendArticles(page)
     }
 
-    suspend fun getProjectCategory(): Result<List<Category>> {
-        return remoteArticleDataSource.getProjectCategory()
-    }
-
     suspend fun getProjectList(page: Int, cid: Int): Result<ArticleList> {
         return remoteArticleDataSource.getProjectList(page, cid)
     }
 
+    suspend fun getBlogArticles(cid: Int, page: Int): Result<ArticleList> {
+        return remoteArticleDataSource.getBlogArticles(cid, page)
+    }
+
+    suspend fun getBlogCategory(): Result<List<Category>> {
+        return remoteArticleDataSource.getBlogCategory()
+    }
+
+    suspend fun getProjectCategory(): Result<List<Category>> {
+        return remoteArticleDataSource.getProjectCategory()
+    }
 }
