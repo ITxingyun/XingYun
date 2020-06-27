@@ -3,14 +3,15 @@ package com.xingyun.android.ui.article
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.xingyun.android.R
+import com.xingyun.android.common.adapter.DivideLineItemDecorator
 import com.xingyun.android.common.base.BaseVMFragment
-import com.xingyun.android.common.base.DivideLineItemDecorator
+import com.xingyun.android.common.ext.showMessage
 import com.xingyun.android.databinding.FragmentArticlesBinding
 import com.xingyun.android.model.bean.Article
-import com.xingyun.android.ui.adapter.ArticleListAdapter
+import com.xingyun.android.ui.webview.WebViewFragmentDirections
 import com.xingyun.android.utils.autoCleared
-import kotlin.properties.Delegates
 
 class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewModel>() {
 
@@ -30,7 +31,9 @@ class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewMod
         initAdapter()
         binding.rvArticles.apply {
             adapter = this@ArticlesFragment.adapter
-            addItemDecoration(DivideLineItemDecorator(resources))
+            val color = resources.getColor(R.color.coolgray_100, resources.newTheme())
+            val divideHeight = resources.getDimensionPixelOffset(R.dimen.recycler_view_divide_line_height)
+            addItemDecoration(DivideLineItemDecorator(divideHeight, color))
         }
     }
 
@@ -51,9 +54,7 @@ class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewMod
 
             if (it.loadMoreEnd) adapter.loadMoreModule.loadMoreEnd()
 
-            it.showError?.let { message ->
-
-            }
+            it.showError?.let { message -> showMessage(message) }
         })
     }
 
@@ -67,9 +68,13 @@ class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewMod
         adapter.setOnItemClickListener { adapter, _, position ->
             val article = adapter.data[position]
             if (article is Article) {
-                //TODO
+                navigation(article)
             }
         }
+    }
+
+    private fun navigation(article: Article) {
+        findNavController().navigate(WebViewFragmentDirections.actionGlobalWebViewFragment(article.title, article.link))
     }
 
     companion object {

@@ -14,9 +14,16 @@
     <string name="home_tab_question_and_answer">问答</string>
     <string name="home_tab_project">最新项目</string>
 
-
     <!--Search-->
     <string name="search_hint">搜索文章、用户、标签</string>
+    <string name="search_rank">排行榜</string>
+    <string name="search_system">体系</string>
+    <string name="search_navigation">导航</string>
+    <string name="search_topic">话题</string>
+    <string name="search_top_article">热门文章</string>
+    <string name="rank_rule">排名规则</string>
+    <string name="rank_level">lv.%d</string>
+    <string name="rank_coinCount">积分:%d</string>
 
     <!--Splash-->
     <string name="login_user_name_error_msg">账户不能为空！</string>

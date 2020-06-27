@@ -1,5 +1,6 @@
 package com.xingyun.android.di.module
 
+import com.xingyun.android.model.http.NetworkInterceptor
 import com.xingyun.android.model.http.api.WebService
 import com.xingyun.android.model.http.cookies.CookiesManager
 import dagger.Module
@@ -29,6 +30,7 @@ class NetworkModule {
                 .writeTimeout(WRITE_TIME_OUT, TimeUnit.MILLISECONDS)
                 .cookieJar(CookiesManager())
                 .addInterceptor(httpLoggingInterceptor)
+                .addInterceptor(NetworkInterceptor())
                 .build()
     }
 

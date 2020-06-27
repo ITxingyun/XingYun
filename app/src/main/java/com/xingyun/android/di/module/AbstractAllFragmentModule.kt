@@ -7,6 +7,8 @@ import com.xingyun.android.ui.home.HomeFragment
 import com.xingyun.android.ui.login.LoginFragment
 import com.xingyun.android.ui.login.RegistryFragment
 import com.xingyun.android.ui.project.ProjectFragment
+import com.xingyun.android.ui.rank.RankFragment
+import com.xingyun.android.ui.search.SearchArticleFragment
 import com.xingyun.android.ui.search.SearchFragment
 import com.xingyun.android.ui.system.SystemFragment
 import com.xingyun.android.ui.user.UserProfileFragment
@@ -40,6 +42,12 @@ abstract class AbstractAllFragmentModule {
 
     @ContributesAndroidInjector
     abstract fun searchFragmentInjector(): SearchFragment
+
+    @ContributesAndroidInjector
+    abstract fun searchArticleFragmentInjector(): SearchArticleFragment
+
+    @ContributesAndroidInjector
+    abstract fun rankFragmentFragmentInjector(): RankFragment
 
     @ContributesAndroidInjector
     abstract fun systemFragmentInjector(): SystemFragment

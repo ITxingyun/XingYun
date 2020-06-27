@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.xingyun.android.ui.search.SearchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_rank"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_rank"
+            android:onClick="@{() -> viewModel.navigateToRankPage()}"
+            app:layout_constraintEnd_toStartOf="@+id/iv_system"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_rank"
+            style="@style/Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/search_rank"
+            android:textColor="@color/midnight"
+            android:onClick="@{() -> viewModel.navigateToRankPage()}"
+            app:layout_constraintBottom_toTopOf="@+id/view_line"
+            app:layout_constraintEnd_toEndOf="@+id/iv_rank"
+            app:layout_constraintStart_toStartOf="@+id/iv_rank"
+            app:layout_constraintTop_toBottomOf="@+id/iv_rank" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_system"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_system"
+            android:onClick="@{() -> viewModel.navigateToSystemPage()}"
+            app:layout_constraintEnd_toStartOf="@+id/iv_navigation"
+            app:layout_constraintStart_toEndOf="@+id/tv_rank"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_system"
+            style="@style/Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/search_system"
+            android:textColor="@color/midnight"
+            android:onClick="@{() -> viewModel.navigateToSystemPage()}"
+            app:layout_constraintBottom_toTopOf="@+id/view_line"
+            app:layout_constraintEnd_toEndOf="@+id/iv_system"
+            app:layout_constraintStart_toStartOf="@+id/iv_system"
+            app:layout_constraintTop_toBottomOf="@+id/iv_system" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_navigation"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_navigation"
+            android:onClick="@{() -> viewModel.navigateToNavigationPage()}"
+            app:layout_constraintEnd_toStartOf="@+id/iv_topic"
+            app:layout_constraintStart_toEndOf="@+id/iv_system"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_navigation"
+            style="@style/Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/search_navigation"
+            android:textColor="@color/midnight"
+            android:onClick="@{() -> viewModel.navigateToNavigationPage()}"
+            app:layout_constraintBottom_toTopOf="@+id/view_line"
+            app:layout_constraintEnd_toEndOf="@+id/iv_navigation"
+            app:layout_constraintStart_toStartOf="@+id/iv_navigation"
+            app:layout_constraintTop_toBottomOf="@+id/iv_navigation" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_topic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:padding="2dp"
+            android:src="@drawable/ic_topic"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> viewModel.navigateToTopicPage()}"
+            app:layout_constraintStart_toEndOf="@+id/iv_navigation"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_topic"
+            style="@style/Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/search_topic"
+            android:textColor="@color/midnight"
+            android:onClick="@{() -> viewModel.navigateToTopicPage()}"
+            app:layout_constraintBottom_toTopOf="@+id/view_line"
+            app:layout_constraintEnd_toEndOf="@+id/iv_topic"
+            app:layout_constraintStart_toStartOf="@+id/iv_topic"
+            app:layout_constraintTop_toBottomOf="@+id/iv_topic" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:background="@color/coolgray_100"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

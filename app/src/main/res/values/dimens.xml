@@ -3,4 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="recycler_view_divide_line_height">10dp</dimen>
+
+    <dimen name="dp1">1dp</dimen>
 </resources>

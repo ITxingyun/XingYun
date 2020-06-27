@@ -1,4 +1,4 @@
-package com.xingyun.android.ui.adapter
+package com.xingyun.android.ui.article
 
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
@@ -8,11 +8,8 @@ import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.xingyun.android.BR
 import com.xingyun.android.R
 import com.xingyun.android.model.bean.Article
-import com.xingyun.android.ui.article.ArticleType
 
-class ArticleListAdapter(
-        articleType: ArticleType
-) : BaseQuickAdapter<Article, BaseDataBindingHolder<ViewDataBinding>>(generateLayoutRes(articleType)), LoadMoreModule {
+class ArticleListAdapter(articleType: ArticleType) : BaseQuickAdapter<Article, BaseDataBindingHolder<ViewDataBinding>>(generateLayoutRes(articleType)), LoadMoreModule {
 
     override fun convert(holder: BaseDataBindingHolder<ViewDataBinding>, item: Article) {
         holder.dataBinding?.setVariable(BR.article, item)
@@ -32,7 +29,7 @@ class ArticleListAdapter(
 
                 ArticleType.Project -> R.layout.item_project
 
-                ArticleType.Blog -> R.layout.item_recommend_article
+                ArticleType.Blog -> R.layout.item_blog
             }
         }
     }

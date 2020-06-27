@@ -2,12 +2,13 @@ package com.xingyun.android.ui.article
 
 import androidx.lifecycle.viewModelScope
 import com.xingyun.android.common.base.BaseViewModel
-import com.xingyun.android.model.bean.ArticleList
+import com.xingyun.android.model.bean.Article
+import com.xingyun.android.model.http.api.ResponseList
 import com.xingyun.android.model.http.api.Result
 import com.xingyun.android.model.source.ArticleRepository
 import kotlinx.coroutines.launch
 
-class ArticlesViewModel(private val articleRepository: ArticleRepository) : BaseViewModel<ArticleList>() {
+class ArticlesViewModel(private val articleRepository: ArticleRepository) : BaseViewModel<ResponseList<Article>>() {
     private lateinit var articleType: ArticleType
 
     private var currentPage = 0
@@ -38,7 +39,7 @@ class ArticlesViewModel(private val articleRepository: ArticleRepository) : Base
         }
     }
 
-    private suspend fun getArticle(articleType: ArticleType, cid: Int?): Result<ArticleList> {
+    private suspend fun getArticle(articleType: ArticleType, cid: Int?): Result<ResponseList<Article>> {
         return when (articleType) {
             ArticleType.Recommend -> articleRepository.getRecommendArticles(currentPage)
 

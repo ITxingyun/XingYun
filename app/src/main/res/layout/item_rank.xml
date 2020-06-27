@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="rank"
+            type="com.xingyun.android.model.bean.Rank" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_rank"
+            style="@style/Body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{rank.rank}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/midnight"
+            tools:text="1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_user"
+            android:tint="@color/coolgray_500"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_rank"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_user_name"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@{rank.username}"
+            app:layout_constraintStart_toEndOf="@+id/iv_user"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="小明" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_level"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@color/teal_300"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textColor="@color/white"
+            android:text="@{@string/rank_level(rank.level)}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_user_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_user_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_user_name"
+            tools:text="lv.13" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_coinCount"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@{@string/rank_coinCount(rank.coinCount)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_user"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
+            tools:text="积分:13111" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

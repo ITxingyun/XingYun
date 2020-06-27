@@ -1,8 +1,7 @@
 package com.xingyun.android.model.source
 
 import com.xingyun.android.model.bean.Article
-import com.xingyun.android.model.bean.ArticleList
-import com.xingyun.android.model.bean.Banner
+import com.xingyun.android.model.http.api.ResponseList
 import com.xingyun.android.model.bean.Category
 import com.xingyun.android.model.http.api.Result
 import com.xingyun.android.model.source.local.LocalArticleDataSource
@@ -13,19 +12,15 @@ class ArticleRepository @Inject constructor(
         private val remoteArticleDataSource: RemoteArticleDataSource,
         private val localArticleDataSource: LocalArticleDataSource) {
 
-    suspend fun getBanners(): Result<List<Banner>> {
-        return remoteArticleDataSource.loadBanner()
-    }
-
-    suspend fun getQuestions(page: Int): Result<ArticleList> {
+    suspend fun getQuestions(page: Int): Result<ResponseList<Article>> {
         return remoteArticleDataSource.getQuestions(page)
     }
 
-    suspend fun getSquareArticles(page: Int): Result<ArticleList> {
+    suspend fun getSquareArticles(page: Int): Result<ResponseList<Article>> {
         return remoteArticleDataSource.getSquareArticles(page)
     }
 
-    suspend fun getLatestProject(page: Int): Result<ArticleList> {
+    suspend fun getLatestProject(page: Int): Result<ResponseList<Article>> {
         return remoteArticleDataSource.getLatestProject(page)
     }
 
@@ -33,15 +28,15 @@ class ArticleRepository @Inject constructor(
         return remoteArticleDataSource.getTopArticles()
     }
 
-    suspend fun getRecommendArticles(page: Int): Result<ArticleList> {
+    suspend fun getRecommendArticles(page: Int): Result<ResponseList<Article>> {
         return remoteArticleDataSource.getRecommendArticles(page)
     }
 
-    suspend fun getProjectList(page: Int, cid: Int): Result<ArticleList> {
+    suspend fun getProjectList(page: Int, cid: Int): Result<ResponseList<Article>> {
         return remoteArticleDataSource.getProjectList(page, cid)
     }
 
-    suspend fun getBlogArticles(cid: Int, page: Int): Result<ArticleList> {
+    suspend fun getBlogArticles(cid: Int, page: Int): Result<ResponseList<Article>> {
         return remoteArticleDataSource.getBlogArticles(cid, page)
     }
 
@@ -51,5 +46,17 @@ class ArticleRepository @Inject constructor(
 
     suspend fun getProjectCategory(): Result<List<Category>> {
         return remoteArticleDataSource.getProjectCategory()
+    }
+
+    suspend fun getSystemCategory(): Result<List<Category>> {
+        return remoteArticleDataSource.getSystemCategory()
+    }
+
+    suspend fun getSystemArticles(page: Int, cid: Int): Result<ResponseList<Article>> {
+        return remoteArticleDataSource.getSystemArticles(page, cid)
+    }
+
+    suspend fun searchArticles(page: Int, key: String): Result<ResponseList<Article>> {
+        return remoteArticleDataSource.searchArticles(page, key)
     }
 }

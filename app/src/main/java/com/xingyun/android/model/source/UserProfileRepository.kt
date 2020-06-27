@@ -2,13 +2,13 @@ package com.xingyun.android.model.source
 
 import com.xingyun.android.model.bean.User
 import com.xingyun.android.model.http.api.Result
-import com.xingyun.android.model.source.local.LocalUserProfileDataSource
+import com.xingyun.android.model.source.local.LocalSearchDataSource
 import com.xingyun.android.model.source.remote.RemoteUserProfileDataSource
 import javax.inject.Inject
 
 class UserProfileRepository @Inject constructor(
         private val remoteDataSource: RemoteUserProfileDataSource,
-        private val localDataSource: LocalUserProfileDataSource
+        private val localDataSource: LocalSearchDataSource
 ) {
 
     suspend fun login(userName: String, password: String): Result<User> {

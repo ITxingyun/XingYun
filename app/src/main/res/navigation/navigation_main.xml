@@ -3,18 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/home_fragment">
+    app:startDestination="@+id/tab_fragment">
 
     <include app:graph="@navigation/navigation_login" />
 
     <fragment
-        android:id="@+id/home_fragment"
+        android:id="@+id/tab_fragment"
         android:name="com.xingyun.android.ui.TabFragment"
         android:label="fragment_tab"
         tools:layout="@layout/fragment_tab">
         <action
-            android:id="@+id/action_home_fragment_to_navigation_login"
-            app:destination="@id/navigation_login" />
+            android:id="@+id/action_tab_fragment_to_navigation_login"
+            app:destination="@id/navigation_login"
+            app:enterAnim="@anim/switch_in_right"
+            app:exitAnim="@anim/switch_out_left"
+            app:popEnterAnim="@anim/switch_in_left"
+            app:popExitAnim="@anim/switch_out_right" />
+
+        <action
+            android:id="@+id/action_tab_fragment_to_searchArticleFragment"
+            app:destination="@id/searchArticleFragment"
+            app:enterAnim="@anim/switch_in_right"
+            app:exitAnim="@anim/switch_out_left"
+            app:popEnterAnim="@anim/switch_in_left"
+            app:popExitAnim="@anim/switch_out_right" />
+
+        <action
+            android:id="@+id/action_tab_fragment_to_systemFragment"
+            app:destination="@id/systemFragment"
+            app:enterAnim="@anim/switch_in_right"
+            app:exitAnim="@anim/switch_out_left"
+            app:popEnterAnim="@anim/switch_in_left"
+            app:popExitAnim="@anim/switch_out_right" />
+
+        <action
+            android:id="@+id/action_tab_fragment_to_rankFragment"
+            app:destination="@id/rankFragment"
+            app:enterAnim="@anim/switch_in_right"
+            app:exitAnim="@anim/switch_out_left"
+            app:popEnterAnim="@anim/switch_in_left"
+            app:popExitAnim="@anim/switch_out_right" />
     </fragment>
 
     <fragment
@@ -37,5 +65,23 @@
         app:exitAnim="@anim/switch_out_left"
         app:popEnterAnim="@anim/switch_in_left"
         app:popExitAnim="@anim/switch_out_right" />
+
+    <fragment
+        android:id="@+id/searchArticleFragment"
+        android:name="com.xingyun.android.ui.search.SearchArticleFragment"
+        android:label="SearchArticleFragment"
+        tools:layout="@layout/fragment_search_article" />
+
+    <fragment
+        android:id="@+id/systemFragment"
+        android:name="com.xingyun.android.ui.system.SystemFragment"
+        android:label="SystemFragment"
+        tools:layout="@layout/fragment_system" />
+
+    <fragment
+        android:id="@+id/rankFragment"
+        android:name="com.xingyun.android.ui.rank.RankFragment"
+        android:label="RankFragment"
+        tools:layout="@layout/fragment_rank" />
 
 </navigation>
