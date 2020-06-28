@@ -32,7 +32,6 @@ class AutoClearedValue<T>(val fragment: Fragment) : ReadWriteProperty<Fragment, 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroy() {
         _value = null
-        fragment.lifecycle.removeObserver(this)
     }
 
 }

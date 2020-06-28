@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">@color/indigo_600</color>
     <color name="colorPrimaryDark">@color/indigo_700</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">@color/indigo_600</color>
 
     <!--color-->
     <color name="xyred_500">#CF3A2C</color>

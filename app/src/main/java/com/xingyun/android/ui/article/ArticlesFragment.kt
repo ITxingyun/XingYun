@@ -12,6 +12,7 @@ import com.xingyun.android.databinding.FragmentArticlesBinding
 import com.xingyun.android.model.bean.Article
 import com.xingyun.android.ui.webview.WebViewFragmentDirections
 import com.xingyun.android.utils.autoCleared
+import com.xingyun.android.view.CustomLoadMoreView
 
 class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewModel>() {
 
@@ -64,6 +65,7 @@ class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewMod
             setOnLoadMoreListener { viewModel.fetchArticles(articleType) }
             isAutoLoadMore = true
             isEnableLoadMoreIfNotFullPage = false
+            loadMoreView = CustomLoadMoreView()
         }
         adapter.setOnItemClickListener { adapter, _, position ->
             val article = adapter.data[position]

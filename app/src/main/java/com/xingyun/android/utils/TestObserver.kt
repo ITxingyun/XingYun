@@ -27,7 +27,7 @@ class TestObserver(private val lifecycleOwner: LifecycleOwner): LifecycleObserve
         Log.e("test", "${lifecycleOwner.javaClass.simpleName}: ON_RESUME")
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     fun onPause() {
         Log.e("test", "${lifecycleOwner.javaClass.simpleName}: ON_RESUME")
     }
