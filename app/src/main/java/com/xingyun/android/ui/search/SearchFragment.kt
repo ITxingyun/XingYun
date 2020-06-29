@@ -13,8 +13,8 @@ import com.xingyun.android.model.bean.Banner
 import com.xingyun.android.ui.adapter.HomeBannerAdapter
 import com.xingyun.android.ui.article.ArticleListAdapter
 import com.xingyun.android.ui.article.ArticleType
+import com.xingyun.android.utils.AutoClearedValue
 import com.xingyun.android.utils.EventObserver
-import com.xingyun.android.utils.autoCleared
 import com.youth.banner.indicator.RectangleIndicator
 
 class SearchFragment: BaseVMFragment<FragmentSearchBinding, SearchViewModel>() {
@@ -23,11 +23,11 @@ class SearchFragment: BaseVMFragment<FragmentSearchBinding, SearchViewModel>() {
 
     override val layoutResourceId: Int = R.layout.fragment_search
 
-    private var banner: com.youth.banner.Banner<Banner, HomeBannerAdapter> by autoCleared()
+    private var banner: com.youth.banner.Banner<Banner, HomeBannerAdapter> by AutoClearedValue()
 
-    private var bannerAdapter: HomeBannerAdapter by autoCleared()
+    private var bannerAdapter: HomeBannerAdapter by AutoClearedValue()
 
-    private var adapter: ArticleListAdapter by autoCleared()
+    private var adapter: ArticleListAdapter by AutoClearedValue()
 
     override fun initView() {
         initAdapter()

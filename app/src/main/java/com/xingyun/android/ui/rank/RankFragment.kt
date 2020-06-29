@@ -8,7 +8,7 @@ import com.xingyun.android.common.adapter.DivideLineItemDecorator
 import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.common.ext.showMessage
 import com.xingyun.android.databinding.FragmentRankBinding
-import com.xingyun.android.utils.autoCleared
+import com.xingyun.android.utils.AutoClearedValue
 
 class RankFragment : BaseVMFragment<FragmentRankBinding, RankViewModel>() {
 
@@ -16,7 +16,7 @@ class RankFragment : BaseVMFragment<FragmentRankBinding, RankViewModel>() {
 
     override val layoutResourceId: Int = R.layout.fragment_rank
 
-    private var adapter: RankAdapter by autoCleared()
+    private var adapter: RankAdapter by AutoClearedValue()
 
     override fun initView() {
         binding.toolbar.apply {

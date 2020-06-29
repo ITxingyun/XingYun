@@ -9,14 +9,14 @@ import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.databinding.FragmentBlogBinding
 import com.xingyun.android.ui.article.ArticleType
 import com.xingyun.android.ui.article.ArticlesFragment
-import com.xingyun.android.utils.autoCleared
+import com.xingyun.android.utils.AutoClearedValue
 
 class BlogFragment: BaseVMFragment<FragmentBlogBinding, BlogViewModel>() {
     override val viewModel: BlogViewModel by viewModels { viewModelFactory }
 
     override val layoutResourceId: Int = R.layout.fragment_blog
 
-    private var adapter: PagerAdapter<ArticlesFragment> by autoCleared()
+    private var adapter: PagerAdapter<ArticlesFragment> by AutoClearedValue()
 
     override fun initView() {
         binding.vpBlog.adapter = PagerAdapter<ArticlesFragment>(childFragmentManager, viewLifecycleOwner.lifecycle).also { adapter = it }

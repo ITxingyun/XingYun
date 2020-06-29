@@ -8,10 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import com.xingyun.android.BR
-import com.xingyun.android.utils.autoCleared
+import com.xingyun.android.utils.AutoClearedValue
 
 abstract class BaseVMFragment<B : ViewDataBinding, VM : ViewModel> : BaseFragment() {
-    protected var binding by autoCleared<B>()
+    protected var binding by AutoClearedValue<B>()
 
     protected abstract val viewModel: VM
 

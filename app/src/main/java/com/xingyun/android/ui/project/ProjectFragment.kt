@@ -9,7 +9,7 @@ import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.databinding.FragmentProjectBinding
 import com.xingyun.android.ui.article.ArticleType
 import com.xingyun.android.ui.article.ArticlesFragment
-import com.xingyun.android.utils.autoCleared
+import com.xingyun.android.utils.AutoClearedValue
 
 class ProjectFragment : BaseVMFragment<FragmentProjectBinding, ProjectViewModel>() {
 
@@ -17,11 +17,10 @@ class ProjectFragment : BaseVMFragment<FragmentProjectBinding, ProjectViewModel>
 
     override val layoutResourceId: Int = R.layout.fragment_project
 
-    private var adapter: PagerAdapter<ArticlesFragment> by autoCleared()
+    private var adapter: PagerAdapter<ArticlesFragment> by AutoClearedValue()
 
     override fun initView() {
         binding.vpProject.adapter = PagerAdapter<ArticlesFragment>(childFragmentManager, viewLifecycleOwner.lifecycle).also { adapter = it }
-
         TabLayoutMediator(binding.tabLayout, binding.vpProject) { tab, position ->
             tab.text = adapter.getTabTitle(position)
         }.attach()

@@ -11,7 +11,7 @@ import com.xingyun.android.common.ext.showMessage
 import com.xingyun.android.databinding.FragmentArticlesBinding
 import com.xingyun.android.model.bean.Article
 import com.xingyun.android.ui.webview.WebViewFragmentDirections
-import com.xingyun.android.utils.autoCleared
+import com.xingyun.android.utils.AutoClearedValue
 import com.xingyun.android.view.CustomLoadMoreView
 
 class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewModel>() {
@@ -20,7 +20,7 @@ class ArticlesFragment : BaseVMFragment<FragmentArticlesBinding, ArticlesViewMod
 
     override val layoutResourceId: Int = R.layout.fragment_articles
 
-    private var adapter: ArticleListAdapter by autoCleared()
+    private var adapter: ArticleListAdapter by AutoClearedValue()
 
     private lateinit var articleType: ArticleType
 
