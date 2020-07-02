@@ -5,7 +5,9 @@ import com.xingyun.android.model.http.api.Result
 import com.xingyun.android.model.source.local.LocalSearchDataSource
 import com.xingyun.android.model.source.remote.RemoteUserProfileDataSource
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class UserProfileRepository @Inject constructor(
         private val remoteDataSource: RemoteUserProfileDataSource,
         private val localDataSource: LocalSearchDataSource

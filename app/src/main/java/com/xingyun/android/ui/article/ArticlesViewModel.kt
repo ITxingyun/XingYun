@@ -1,6 +1,8 @@
 package com.xingyun.android.ui.article
 
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import com.xingyun.android.common.base.BaseViewModel
 import com.xingyun.android.model.bean.Article
 import com.xingyun.android.model.http.api.ResponseList

@@ -1,4 +1,4 @@
-package com.xingyun.android.ui.adapter
+package com.xingyun.android.ui.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import com.xingyun.android.databinding.ItemBannerBinding
 import com.xingyun.android.model.bean.Banner
 import com.youth.banner.adapter.BannerAdapter
 
-class HomeBannerAdapter: BannerAdapter<Banner, BannerViewHolder>(mutableListOf()) {
+class SearchBannerAdapter: BannerAdapter<Banner, BannerViewHolder>(mutableListOf()) {
 
     override fun onCreateHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
         val binding = ItemBannerBinding.inflate(LayoutInflater.from(parent.context), parent, false)

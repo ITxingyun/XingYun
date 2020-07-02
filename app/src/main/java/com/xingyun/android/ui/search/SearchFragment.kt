@@ -10,7 +10,6 @@ import com.xingyun.android.common.base.BaseVMFragment
 import com.xingyun.android.databinding.FragmentSearchBinding
 import com.xingyun.android.databinding.LayoutSearchNavigationBinding
 import com.xingyun.android.model.bean.Banner
-import com.xingyun.android.ui.adapter.HomeBannerAdapter
 import com.xingyun.android.ui.article.ArticleListAdapter
 import com.xingyun.android.ui.article.ArticleType
 import com.xingyun.android.utils.AutoClearedValue
@@ -23,9 +22,9 @@ class SearchFragment: BaseVMFragment<FragmentSearchBinding, SearchViewModel>() {
 
     override val layoutResourceId: Int = R.layout.fragment_search
 
-    private var banner: com.youth.banner.Banner<Banner, HomeBannerAdapter> by AutoClearedValue()
+    private var banner: com.youth.banner.Banner<Banner, SearchBannerAdapter> by AutoClearedValue()
 
-    private var bannerAdapter: HomeBannerAdapter by AutoClearedValue()
+    private var bannerAdapter: SearchBannerAdapter by AutoClearedValue()
 
     private var adapter: ArticleListAdapter by AutoClearedValue()
 
@@ -46,8 +45,8 @@ class SearchFragment: BaseVMFragment<FragmentSearchBinding, SearchViewModel>() {
     private fun initAdapter() {
         adapter = ArticleListAdapter(ArticleType.Recommend)
         context?.let {
-            bannerAdapter = HomeBannerAdapter()
-            banner = LayoutInflater.from(it).inflate(R.layout.layout_banner, binding.rvSearch, false) as com.youth.banner.Banner<Banner, HomeBannerAdapter>
+            bannerAdapter = SearchBannerAdapter()
+            banner = LayoutInflater.from(it).inflate(R.layout.layout_banner, binding.rvSearch, false) as com.youth.banner.Banner<Banner, SearchBannerAdapter>
             banner.setAdapter(bannerAdapter)
                     .addBannerLifecycleObserver(this)
                     .setIndicator(RectangleIndicator(context))

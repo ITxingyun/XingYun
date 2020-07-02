@@ -17,7 +17,9 @@ import com.xingyun.android.ui.system.SystemViewModel
 import com.xingyun.android.ui.user.UserProfileViewModel
 import com.xingyun.android.ui.webview.WebViewViewModel
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class XYViewModelFactory @Inject constructor(
     private val articleRepository: ArticleRepository,
     private val searchRepository: SearchRepository,

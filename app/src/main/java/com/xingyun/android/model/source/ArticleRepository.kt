@@ -7,7 +7,9 @@ import com.xingyun.android.model.http.api.Result
 import com.xingyun.android.model.source.local.LocalArticleDataSource
 import com.xingyun.android.model.source.remote.RemoteArticleDataSource
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class ArticleRepository @Inject constructor(
         private val remoteArticleDataSource: RemoteArticleDataSource,
         private val localArticleDataSource: LocalArticleDataSource) {

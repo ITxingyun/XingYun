@@ -6,6 +6,8 @@ import com.tencent.bugly.crashreport.CrashReport.UserStrategy
 import com.tencent.matrix.Matrix
 import com.tencent.matrix.iocanary.IOCanaryPlugin
 import com.tencent.matrix.iocanary.config.IOConfig
+import com.tencent.matrix.resource.ResourcePlugin
+import com.tencent.matrix.resource.config.ResourceConfig
 import com.xingyun.android.di.component.AppComponent
 import com.xingyun.android.di.component.DaggerAppComponent
 import com.xingyun.android.matrix.DynamicConfig
@@ -41,15 +43,12 @@ class WanAndroidApplication : Application(), HasAndroidInjector {
     private fun initCrashReport() {
         val strategy = UserStrategy(applicationContext).apply {
             appVersion = "1.0.1"
-            appChannel =
-                APP_CHANNEL
+            appChannel = APP_CHANNEL
             isBuglyLogUpload = true
-            appPackageName =
-                PACK_NAME
+            appPackageName = PACK_NAME
         }
 
-        Bugly.init(applicationContext,
-            BUGLY_APP_ID, true, strategy)
+        Bugly.init(applicationContext, BUGLY_APP_ID, true, strategy)
     }
 
     private fun initMatrix() {
@@ -58,25 +57,30 @@ class WanAndroidApplication : Application(), HasAndroidInjector {
         builder.patchListener(MatrixPluginListener(this)) // add general pluginListener
 
         val dynamicConfig = DynamicConfig() // dynamic config
+//
+//        // init plugin
+//        val ioCanaryPlugin = IOCanaryPlugin(
+//            IOConfig.Builder()
+//                .dynamicConfig(dynamicConfig)
+//                .build()
+//        )
 
-        // init plugin
-        // init plugin
-        val ioCanaryPlugin = IOCanaryPlugin(
-                IOConfig.Builder()
-                        .dynamicConfig(dynamicConfig)
-                        .build()
-        )
-        //add to matrix
-        //add to matrix
-        builder.plugin(ioCanaryPlugin)
+        val resourceConfig = ResourceConfig.Builder()
+            .dynamicConfig(dynamicConfig)
+            .build()
+        val resourcePlugin = ResourcePlugin(resourceConfig)
 
-        //init matrix
+        //add to matrix
+//        builder.plugin(ioCanaryPlugin)
+        builder.plugin(resourcePlugin)
+
+
         //init matrix
         Matrix.init(builder.build())
 
         // start plugin
-        // start plugin
-        ioCanaryPlugin.start()
+//        ioCanaryPlugin.start()
+        resourcePlugin.start()
     }
 
     companion object {
