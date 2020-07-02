@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private val fragments = mutableListOf(
-            ArticlesFragment.newInstance(ArticleType.Recommend),
+            RecommendArticleFragment(),
             ArticlesFragment.newInstance(ArticleType.Square),
             ArticlesFragment.newInstance(ArticleType.Question),
             ArticlesFragment.newInstance(ArticleType.LatestProject)

@@ -1,7 +1,7 @@
 package com.xingyun.android.model.source.local
 
-import com.xingyun.android.model.source.local.db.UserDao
+import com.xingyun.android.model.source.db.ArticleDao
 
-class LocalSearchDataSource(userDao: UserDao) {
+class LocalSearchDataSource(articleDao: ArticleDao) {
 
 }

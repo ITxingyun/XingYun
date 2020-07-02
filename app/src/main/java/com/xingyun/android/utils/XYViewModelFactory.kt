@@ -3,10 +3,12 @@ package com.xingyun.android.utils
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.xingyun.android.model.source.ArticleRepository
+import com.xingyun.android.model.source.MyArticleRepository
 import com.xingyun.android.model.source.SearchRepository
 import com.xingyun.android.model.source.UserProfileRepository
 import com.xingyun.android.ui.article.ArticlesViewModel
 import com.xingyun.android.ui.blog.BlogViewModel
+import com.xingyun.android.ui.home.RecommendArticleViewModel
 import com.xingyun.android.ui.login.LoginViewModel
 import com.xingyun.android.ui.login.RegistryViewModel
 import com.xingyun.android.ui.project.ProjectViewModel
@@ -23,7 +25,8 @@ import javax.inject.Singleton
 class XYViewModelFactory @Inject constructor(
     private val articleRepository: ArticleRepository,
     private val searchRepository: SearchRepository,
-    private val userProfileRepository: UserProfileRepository
+    private val userProfileRepository: UserProfileRepository,
+    private val myArticleRepository: MyArticleRepository
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
@@ -37,6 +40,10 @@ class XYViewModelFactory @Inject constructor(
 
             modelClass.isAssignableFrom(ArticlesViewModel::class.java) ->
                 ArticlesViewModel(articleRepository)
+
+            //home
+            modelClass.isAssignableFrom(RecommendArticleViewModel::class.java) ->
+                RecommendArticleViewModel(myArticleRepository)
 
             //blog
             modelClass.isAssignableFrom(BlogViewModel::class.java) ->

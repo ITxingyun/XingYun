@@ -7,7 +7,6 @@ import com.xingyun.android.model.http.api.ResponseList
 import com.xingyun.android.model.bean.Category
 import com.xingyun.android.model.http.api.Result
 import com.xingyun.android.model.http.api.WebService
-import com.xingyun.android.ui.home.ArticlePageSource
 import com.xingyun.android.utils.apiCall
 
 class RemoteArticleDataSource(private val webService: WebService) {

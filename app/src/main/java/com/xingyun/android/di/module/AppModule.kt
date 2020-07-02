@@ -3,10 +3,10 @@ package com.xingyun.android.di.module
 import android.content.Context
 import androidx.room.Room
 import com.xingyun.android.model.http.api.WebService
+import com.xingyun.android.model.source.db.AppDatabase
 import com.xingyun.android.model.source.local.LocalArticleDataSource
 import com.xingyun.android.model.source.local.LocalSearchDataSource
 import com.xingyun.android.model.source.local.LocalUserProfileDataSource
-import com.xingyun.android.model.source.local.db.AppDatabase
 import com.xingyun.android.model.source.remote.RemoteArticleDataSource
 import com.xingyun.android.model.source.remote.RemoteSearchDataSource
 import com.xingyun.android.model.source.remote.RemoteUserProfileDataSource
@@ -32,7 +32,7 @@ object AppModule {
     fun provideLocalArticleDataSource(
             appDatabase: AppDatabase
     ): LocalArticleDataSource {
-        return LocalArticleDataSource(appDatabase.userDao())
+        return LocalArticleDataSource(appDatabase.articleDao())
     }
 
     @JvmStatic
@@ -50,7 +50,7 @@ object AppModule {
     fun provideLocalSearchDataSource(
             appDatabase: AppDatabase
     ): LocalSearchDataSource {
-        return LocalSearchDataSource(appDatabase.userDao())
+        return LocalSearchDataSource(appDatabase.articleDao())
     }
 
     @JvmStatic
@@ -68,7 +68,7 @@ object AppModule {
     fun provideLocalUserProfileDataSource(
             appDatabase: AppDatabase
     ): LocalUserProfileDataSource {
-        return LocalUserProfileDataSource(appDatabase.userDao())
+        return LocalUserProfileDataSource(appDatabase.articleDao())
     }
 
     @JvmStatic
