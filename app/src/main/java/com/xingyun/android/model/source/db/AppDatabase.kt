@@ -7,11 +7,12 @@ import com.xingyun.android.model.bean.Article
 import com.xingyun.android.model.bean.TagsConverters
 
 @Database(
-        version = 1,
         entities = [
-            Page::class,
+            RemoteKey::class,
             Article::class
-        ]
+        ],
+        version = 1,
+        exportSchema = false
 )
 @TypeConverters(TagsConverters::class)
 abstract class AppDatabase : RoomDatabase() {

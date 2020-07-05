@@ -1,16 +1,17 @@
 package com.xingyun.android.model.bean
 
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 
-@Entity
+@Entity(tableName = "articles")
 data class Article(
-        @PrimaryKey val id: Int,
-        @Embedded val title: String,
+        @PrimaryKey var roomId: String,
+        var articleType: String,
+        val id: Int,
+        val title: String,
         val link: String,
         val apkLink: String,
         val audit: Int,

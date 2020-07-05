@@ -1,24 +1,20 @@
 package com.xingyun.android.ui.home
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.xingyun.android.model.bean.Article
 import com.xingyun.android.model.source.MyArticleRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.consumeAsFlow
-import kotlinx.coroutines.flow.flattenMerge
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.Flow
 
-class RecommendArticleViewModel(myArticleRepository: MyArticleRepository): ViewModel() {
+@ExperimentalCoroutinesApi
+class RecommendArticleViewModel(private val myArticleRepository: MyArticleRepository): ViewModel() {
 
-    private val clearListCh = Channel<Unit>(Channel.CONFLATED)
-
-    @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
-    val articles = flowOf(
-            clearListCh.consumeAsFlow().map { PagingData.empty() },
-            myArticleRepository.getRecommendArticles()
-    ).flattenMerge(2)
+    fun fetchArticle(): Flow<PagingData<Article>> {
+        return myArticleRepository.getRecommendArticles()
+                .cachedIn(viewModelScope)
+    }
 
 }

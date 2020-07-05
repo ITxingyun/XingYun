@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.xingyun.android.databinding.ItemRecommendArticleBinding
 import com.xingyun.android.model.bean.Article
 
-class RecommendArticleAdapter() : PagingDataAdapter<Article, BaseViewHolder<ItemRecommendArticleBinding>>(ArticleComparator) {
+class RecommendArticleAdapter : PagingDataAdapter<Article, BaseViewHolder<ItemRecommendArticleBinding>>(ArticleComparator) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ItemRecommendArticleBinding> {
-        val binding = ItemRecommendArticleBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = ItemRecommendArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BaseViewHolder(binding)
     }
 

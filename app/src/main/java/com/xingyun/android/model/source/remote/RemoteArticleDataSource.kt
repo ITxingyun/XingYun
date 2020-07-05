@@ -1,10 +1,8 @@
 package com.xingyun.android.model.source.remote
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
 import com.xingyun.android.model.bean.Article
-import com.xingyun.android.model.http.api.ResponseList
 import com.xingyun.android.model.bean.Category
+import com.xingyun.android.model.http.api.ResponseList
 import com.xingyun.android.model.http.api.Result
 import com.xingyun.android.model.http.api.WebService
 import com.xingyun.android.utils.apiCall
@@ -58,8 +56,4 @@ class RemoteArticleDataSource(private val webService: WebService) {
     suspend fun searchArticles(page: Int, key: String): Result<ResponseList<Article>> {
         return apiCall { webService.searchArticles(page, key) }
     }
-
-    val articlesFlow = Pager(PagingConfig(pageSize = 10)){
-        ArticlePageSource(1, webService)
-    }.flow
 }

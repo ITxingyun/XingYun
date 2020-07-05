@@ -11,12 +11,12 @@ import com.xingyun.android.model.bean.Article
 interface ArticleDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertArticles(articles: List<Article>)
+    suspend fun insertArticles(articles: List<Article>)
 
-    @Query("DELETE FROM article WHERE link = :articleType")
-    fun deleteByQuery(articleType: String)
+    @Query("SELECT * FROM articles WHERE articleType = :articleType")
+    fun getArticlesByType(articleType: String): PagingSource<Int, Article>
 
-    @Query("SELECT * FROM article WHERE link = :articleType")
-    fun articlePagingSource(articleType: String): PagingSource<Int, Article>
+    @Query("DELETE FROM articles WHERE articleType = :articleType")
+    suspend fun removeByArticleType(articleType: String)
 
 }

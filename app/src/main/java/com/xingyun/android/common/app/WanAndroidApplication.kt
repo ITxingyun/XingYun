@@ -3,15 +3,8 @@ package com.xingyun.android.common.app
 import android.app.Application
 import com.tencent.bugly.Bugly
 import com.tencent.bugly.crashreport.CrashReport.UserStrategy
-import com.tencent.matrix.Matrix
-import com.tencent.matrix.iocanary.IOCanaryPlugin
-import com.tencent.matrix.iocanary.config.IOConfig
-import com.tencent.matrix.resource.ResourcePlugin
-import com.tencent.matrix.resource.config.ResourceConfig
 import com.xingyun.android.di.component.AppComponent
 import com.xingyun.android.di.component.DaggerAppComponent
-import com.xingyun.android.matrix.DynamicConfig
-import com.xingyun.android.matrix.MatrixPluginListener
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -32,8 +25,6 @@ class WanAndroidApplication : Application(), HasAndroidInjector {
 
         instance = this
 
-//        initMatrix()
-
 //        initCrashReport()
 
     }
@@ -49,38 +40,6 @@ class WanAndroidApplication : Application(), HasAndroidInjector {
         }
 
         Bugly.init(applicationContext, BUGLY_APP_ID, true, strategy)
-    }
-
-    private fun initMatrix() {
-        val builder: Matrix.Builder = Matrix.Builder(this) // build matrix
-
-        builder.patchListener(MatrixPluginListener(this)) // add general pluginListener
-
-        val dynamicConfig = DynamicConfig() // dynamic config
-//
-//        // init plugin
-//        val ioCanaryPlugin = IOCanaryPlugin(
-//            IOConfig.Builder()
-//                .dynamicConfig(dynamicConfig)
-//                .build()
-//        )
-
-        val resourceConfig = ResourceConfig.Builder()
-            .dynamicConfig(dynamicConfig)
-            .build()
-        val resourcePlugin = ResourcePlugin(resourceConfig)
-
-        //add to matrix
-//        builder.plugin(ioCanaryPlugin)
-        builder.plugin(resourcePlugin)
-
-
-        //init matrix
-        Matrix.init(builder.build())
-
-        // start plugin
-//        ioCanaryPlugin.start()
-        resourcePlugin.start()
     }
 
     companion object {

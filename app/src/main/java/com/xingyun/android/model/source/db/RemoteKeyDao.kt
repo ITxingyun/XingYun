@@ -8,11 +8,11 @@ import androidx.room.Query
 @Dao
 interface RemoteKeyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrReplace(page: Page)
+    suspend fun insertAll(remoteKey: List<RemoteKey>)
 
-    @Query("SELECT * FROM page WHERE articleType = :articleType")
-    suspend fun remoteKeyByQuery(articleType: String): Page
+    @Query("SELECT * FROM remote_key WHERE id = :articleId")
+    suspend fun remoteKeyByArticle(articleId: String): RemoteKey
 
-    @Query("DELETE FROM page WHERE articleType = :articleType")
-    suspend fun deleteByQuery(articleType: String)
+    @Query("DELETE FROM remote_key WHERE articleType = :articleType")
+    suspend fun removeByArticleType(articleType: String)
 }
