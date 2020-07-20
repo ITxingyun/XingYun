@@ -53,16 +53,12 @@ q
 Aapp/src/main/java/com/xingyun/android/ui/search/SearchFragment.kt,b/a/ba894178b6ddfd67e48fd535b9a4b090b134bb9e
 r
 Bapp/src/main/java/com/xingyun/android/common/base/BaseViewModel.kt,0/a/0a0013d33653ff74a0b769e49ef416c61bd4f143
-v
-Fapp/src/main/java/com/xingyun/android/ui/adapter/ArticleListAdapter.kt,7/4/7408a2f4ceb3db5aee8f66ff89d9505fc94c8249
 s
 Capp/src/main/java/com/xingyun/android/common/exception/Exception.kt,b/6/b6fd2e6dce8429e6c4452243911b4f88cf078706
 t
 Dapp/src/main/java/com/xingyun/android/ui/article/ArticlesFragment.kt,2/c/2c982f7fe9f4fa36c9bc09b63929f0e6148f5269
 u
 Eapp/src/main/java/com/xingyun/android/ui/article/ArticlesViewModel.kt,1/1/11f01f0e476c2cbd2159416e9beb6fc8d480b387
-p
-@app/src/main/java/com/xingyun/android/ui/home/HomePageAdapter.kt,8/9/894dc98c6ff80bc528a329c7789d44cc69dc6c8e
 q
 Aapp/src/main/java/com/xingyun/android/ui/system/SystemFragment.kt,0/0/00b440b35e832c8dad347b017d593e188f721c66
 r
@@ -79,3 +75,5 @@ Y
 +app/src/main/res/layout/fragment_search.xml,2/f/2f0ecfae4fe398a722fcad4e3b06b75ba69c589a
 [
 +app/src/main/res/layout/fragment_system.xml,d/f/df82a10fff7f21606712874edc6e75011e36d0b3
+q
+Aapp/src/main/java/com/xingyun/android/common/base/BaseFragment.kt,5/7/575479675ef6c4498f4b6e2a479ae9a17bb5c558

@@ -5,23 +5,26 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class PagerAdapter<F: Fragment>(
+class PagerAdapter(
         fragmentManager: FragmentManager,
         lifecycle: Lifecycle,
-        private val pagers: MutableList<F> = mutableListOf()
+        private val pagers: MutableList<PagerTab> = mutableListOf()
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
-    private val tabTitle = mutableListOf<String>()
 
     override fun getItemCount(): Int = pagers.size
 
-    override fun createFragment(position: Int): Fragment = pagers[position]
+    override fun createFragment(position: Int): Fragment = pagers[position].pagerBuilder()
 
-    fun getTabTitle(position: Int): String = tabTitle[position]
+    fun getTabTitle(position: Int): String = pagers[position].tabTitle
 
-    fun update(updateAction: (MutableList<F>, MutableList<String>) -> Unit) {
+    fun update(pagerTabs: List<PagerTab>) {
         pagers.clear()
-        tabTitle.clear()
-        updateAction(pagers, tabTitle)
+        pagers.addAll(pagerTabs)
         notifyDataSetChanged()
     }
+
+    class PagerTab(
+        val pagerBuilder: () -> Fragment,
+        val tabTitle: String = ""
+    )
 }

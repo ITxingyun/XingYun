@@ -17,10 +17,10 @@ class ProjectFragment : BaseVMFragment<FragmentProjectBinding, ProjectViewModel>
 
     override val layoutResourceId: Int = R.layout.fragment_project
 
-    private var adapter: PagerAdapter<ArticlesFragment> by AutoClearedValue()
+    private var adapter: PagerAdapter by AutoClearedValue()
 
     override fun initView() {
-        binding.vpProject.adapter = PagerAdapter<ArticlesFragment>(childFragmentManager, viewLifecycleOwner.lifecycle).also { adapter = it }
+        binding.vpProject.adapter = PagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle).also { adapter = it }
         TabLayoutMediator(binding.tabLayout, binding.vpProject) { tab, position ->
             tab.text = adapter.getTabTitle(position)
         }.attach()
@@ -32,12 +32,7 @@ class ProjectFragment : BaseVMFragment<FragmentProjectBinding, ProjectViewModel>
 
     override fun observe() {
         viewModel.projectCategory.observe(viewLifecycleOwner, Observer { categories ->
-            adapter.update { pager, tabTitles ->
-                categories.forEach {
-                    tabTitles.add(it.name)
-                    pager.add(ArticlesFragment.newInstance(ArticleType.Project, it.id))
-                }
-            }
+            adapter.update(categories.map { PagerAdapter.PagerTab({ArticlesFragment.newInstance(ArticleType.Project, it.id)}, it.name) })
         })
 
     }

@@ -16,10 +16,10 @@ class BlogFragment: BaseVMFragment<FragmentBlogBinding, BlogViewModel>() {
 
     override val layoutResourceId: Int = R.layout.fragment_blog
 
-    private var adapter: PagerAdapter<ArticlesFragment> by AutoClearedValue()
+    private var adapter: PagerAdapter by AutoClearedValue()
 
     override fun initView() {
-        binding.vpBlog.adapter = PagerAdapter<ArticlesFragment>(childFragmentManager, viewLifecycleOwner.lifecycle).also { adapter = it }
+        binding.vpBlog.adapter = PagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle).also { adapter = it }
         TabLayoutMediator(binding.tabLayout, binding.vpBlog) { tab, position ->
             tab.text = adapter.getTabTitle(position)
         }.attach()
@@ -31,12 +31,7 @@ class BlogFragment: BaseVMFragment<FragmentBlogBinding, BlogViewModel>() {
 
     override fun observe() {
         viewModel.blogCategory.observe(viewLifecycleOwner, Observer { categories ->
-            adapter.update { pager, tabTitles ->
-                categories.forEach {
-                    tabTitles.add(it.name)
-                    pager.add(ArticlesFragment.newInstance(ArticleType.Blog, it.id))
-                }
-            }
+            adapter.update(categories.map { PagerAdapter.PagerTab({ArticlesFragment.newInstance(ArticleType.Project, it.id)}, it.name) })
         })
     }
 

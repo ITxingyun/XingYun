@@ -11,13 +11,6 @@ import com.xingyun.android.ui.article.ArticlesFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
-    private val fragments = mutableListOf(
-            ArticlesFragment.newInstance(ArticleType.Recommend),
-            ArticlesFragment.newInstance(ArticleType.Square),
-            ArticlesFragment.newInstance(ArticleType.Question),
-            ArticlesFragment.newInstance(ArticleType.LatestProject)
-    )
-
     private val tabTitles = listOf(
             R.string.home_tab_recommend,
             R.string.home_tab_square,
@@ -27,7 +20,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewPager.adapter = PagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle, fragments)
+        val pagers = mutableListOf(
+                PagerAdapter.PagerTab({ ArticlesFragment.newInstance(ArticleType.Recommend) }),
+                PagerAdapter.PagerTab({ ArticlesFragment.newInstance(ArticleType.Square) }),
+                PagerAdapter.PagerTab({ ArticlesFragment.newInstance(ArticleType.Question) }),
+                PagerAdapter.PagerTab({ ArticlesFragment.newInstance(ArticleType.LatestProject) })
+        )
+        viewPager.adapter = PagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle, pagers)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = getString(tabTitles[position])
         }.attach()

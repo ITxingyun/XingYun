@@ -16,19 +16,19 @@ import com.xingyun.android.ui.user.UserProfileFragment
 import kotlinx.android.synthetic.main.fragment_tab.*
 
 class TabFragment : Fragment(R.layout.fragment_tab), BottomNavigationView.OnNavigationItemSelectedListener {
-    private val fragments = mutableListOf(
-            HomeFragment(),
-            BlogFragment(),
-            SearchFragment(),
-            ProjectFragment(),
-            UserProfileFragment()
-    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val pagers =  mutableListOf(
+            PagerAdapter.PagerTab(::HomeFragment),
+            PagerAdapter.PagerTab(::BlogFragment),
+            PagerAdapter.PagerTab(::SearchFragment),
+            PagerAdapter.PagerTab(::ProjectFragment),
+            PagerAdapter.PagerTab(::UserProfileFragment)
+        )
         viewPager.apply {
             isUserInputEnabled = false
-            adapter = PagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle, fragments)
+            adapter = PagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle, pagers)
         }
         navView.setOnNavigationItemSelectedListener(this)
     }
